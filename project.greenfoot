@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Nov 21 18:42:55 CET 2016
+#Mon Nov 21 18:52:21 CET 2016
 target4.type=ClassTarget
 dependency3.from=MainMenuWorld
 target3.height=50
@@ -41,8 +41,8 @@ editor.swing.0.y=52
 target1.typeParameters=
 editor.swing.0.x=0
 target2.height=50
-target5.y=70
 target4.height=50
+target5.y=70
 target5.x=160
 target1.name=ExitButton
 target4.y=130
@@ -73,11 +73,11 @@ dependency2.from=ExitButton
 dependency2.type=UsesDependency
 target5.typeParameters=
 world.lastInstantiated=MainMenuWorld
-mainWindow.height=1056
 target2.showInterface=false
+mainWindow.height=1056
 editor.swing.0.height=1028
 target3.name=MainMenuWorld
 class.MainMenuWorld.image=wet-blue.jpg
-project.charset=UTF-8
 target3.width=140
+project.charset=UTF-8
 target4.showInterface=false
