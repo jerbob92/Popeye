@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sun Dec 04 16:21:35 CET 2016
+#Sun Dec 04 23:51:45 CET 2016
 editor.fx.0.height=700
 target2.width=100
 target8.name=Enemy
@@ -54,6 +54,7 @@ target4.typeParameters=
 target5.name=StartButton
 world.lastInstantiated=MainMenuWorld
 class.Crane.image=crane1.png
+class.ExitButton.image=EXIT.png
 mainWindow.width=1920
 readme.width=47
 target9.name=MiniGame1World
@@ -93,9 +94,10 @@ class.ExitButton.superclass=Button
 class.MainMenuWorld.superclass=greenfoot.World
 target7.typeParameters=
 target2.name=Containers
-class.MainMenuWorld.image=Sea.png
+class.MainMenuWorld.image=Background.png
 dependency9.from=MiniGame1World
 readme.name=@README
+class.StartButton.image=PLAY FINAL.png
 editor.swing.0.width=901
 target6.name=EnemyList
 target9.height=50

@@ -8,9 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartButton extends Button
 {
-    public StartButton(String text) {
-       super(text);
-    }
     
     /**
      * Act - do whatever the StartButton wants to do. This method is called whenever

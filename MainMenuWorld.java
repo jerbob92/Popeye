@@ -23,19 +23,10 @@ public class MainMenuWorld extends World
     
     private void init() {
         
-        StartButton start_button = new StartButton("Start");
-        int padding = 30;
-        int button_height = start_button.getHeight() + padding;
-        int center = (getHeight()-button_height)/2;
-        int amount_of_buttons = 2;
-        int start_height = center - ((button_height * amount_of_buttons) / 2);
-       
-        // Get button height + padding.
-        addObject(start_button, ((getWidth()-start_button.getWidth())/2) + start_button.getWidth() / 2, start_height);
-        
-        start_height = start_height + button_height;
-        
-        ExitButton exit_button = new ExitButton("Exit");
-        addObject(exit_button, ((getWidth()-exit_button.getWidth())/2) + exit_button.getWidth() / 2, start_height);
+        StartButton start_button = new StartButton();
+        ExitButton exit_button = new ExitButton();
+
+        addObject(start_button, 400, 300);
+        addObject(exit_button, 800, 300);
     }
 }
