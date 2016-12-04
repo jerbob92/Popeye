@@ -9,6 +9,10 @@ import java.awt.Color;
  */
 public class Ship extends Actor
 {
+    
+    public int start_x = 640;
+    public int start_y = 700;
+    
     /**
      * Act - do whatever the Ship wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -48,22 +52,22 @@ public class Ship extends Actor
     public void move()
     {
         /*Beweegt het schip vooruit.*/
-        if(Greenfoot.isKeyDown("w")){move(4);}
+        if(Greenfoot.isKeyDown("w")){move(8);}
     }
     public void turnCheck()
     {
         /*checkt of de sleepboot op het beginpunt staat. */
-        if(getX() == 300 && getY() == 335){turn();}       
+        if(getX() == this.start_x && getY() == this.start_y){turn();}       
     }
     public void reset()
     {
          /*Checkt of het schip verplaatst is. Zo ja: beweegt hem terug naar de
            startpositie. */
-       if((((getY() != 335) && Greenfoot.isKeyDown("w") != true)|| isAtEdge()))
+       if((((getY() != this.start_y) && Greenfoot.isKeyDown("w") != true)|| isAtEdge()))
        {
-            turnTowards(300,335);
+            turnTowards(this.start_x,this.start_y);
             move(4);
-            if(getX() == 300 && getY() == 335)
+            if(getX() == this.start_x && getY() == this.start_y)
             {
                 setRotation(270);
             }
@@ -82,7 +86,7 @@ public class Ship extends Actor
           enemy.toHarbor();
           
           Ship ship = new Ship();
-          world.addObject(ship,300,335);
+          world.addObject(ship,this.start_x,this.start_y);
           ship.setRotation(225);
           world.removeObject(this);
         }   

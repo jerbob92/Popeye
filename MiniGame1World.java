@@ -29,7 +29,19 @@ public class MiniGame1World extends World
         Ship ship = new Ship();
         EnemyList enemyList = new EnemyList();
         addObject(enemyList,0,0);
-        addObject(ship,300,335);
+        addObject(ship,ship.start_x,ship.start_y);
         ship.setRotation(225);
+    }
+    
+    public void act()
+    {
+        buttonPressed();
+    }
+    
+    public void buttonPressed()
+    {
+        if(Greenfoot.isKeyDown("escape")) {
+            Greenfoot.setWorld(new MainMenuWorld());
+        }     
     }
 }
