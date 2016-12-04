@@ -79,7 +79,7 @@ public class Ship extends Actor
     {
       Enemy enemy;
       enemy = (Enemy)getOneObjectAtOffset(0,0, Enemy.class);
-      if(enemy != null){
+      if(enemy != null && !enemy.hasTarget()){
           World world;
           world = getWorld();
           

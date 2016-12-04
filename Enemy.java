@@ -11,11 +11,14 @@ public class Enemy extends EnemyList
     int speed;
     boolean atHarbor;
     EnemyList enemyList;
+    Crane target;
+    
     public Enemy(EnemyList enemyList)
     {
         this.enemyList = enemyList;
         this.atHarbor = false;
         this.speed = 1;
+        this.target = null;
     }
     
     public EnemyList getEnemyList() {
@@ -32,18 +35,32 @@ public class Enemy extends EnemyList
         if (!this.atHarbor) {
             move(speed);
             edgeCheck();
-        }
-      
+        }  
     }
+    
+    public boolean hasTarget() {
+        if (this.target == null) {
+            return false;
+        }
+        
+        return true;
+    }
+    
     public void toHarbor()
     {   // richt het bootje naar de kraan als hij 'gesleept' wordt.
-        Crane currentCrane = this.getEnemyList().currentCrane();
-        
-        System.out.println(this.getEnemyList().currentCraneI());
-        
+        this.target = this.getEnemyList().currentCrane();
         this.getEnemyList().incrementCrane();
-        turnTowards(currentCrane.getX() - (currentCrane.getImage().getWidth() / 2), currentCrane.getY());
+        
+        System.out.println(this.target.getX());
+        System.out.println(this.target.getY());
+        
+        int dx = this.target.getX() - getX();  
+        int dy = this.target.getY() - getY();  
+        double angle = Math.toDegrees(Math.atan2(dy, dx));  
+        int x = (int) angle;
+        setRotation (getRotation() + x);
     }
+    
     public void edgeCheck()
     {
         // Kijk of de boot bij de kraan staat.
@@ -54,7 +71,7 @@ public class Enemy extends EnemyList
             world = getWorld();
             // Boot is bij de kade, zet stil en richt goed.
             this.atHarbor = true;
-            turnTowards(0, world.getHeight() - 145);
+            setRotation(0); 
             setLocation(crane.getX(), crane.getY()-30);
         }
     }

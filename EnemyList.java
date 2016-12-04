@@ -13,18 +13,15 @@ public class EnemyList extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     World world;
-    static int i;
-    static boolean alt;
-    
+    int i;
+    boolean alt;
     Crane[] cranes;
     int currentCrane;
     
     public EnemyList(){
-        Enemy[] enemies;
         this.currentCrane = 0;
         this.i = 0;
         this.alt = false;
-        
     }
     
     public void setCranes(Crane[] cranes) {
@@ -54,7 +51,7 @@ public class EnemyList extends Actor
             this.i++;
         }
         
-        if(i<=this.cranes.length && Greenfoot.getRandomNumber(5000) < 10){
+        if(i < this.cranes.length && Greenfoot.getRandomNumber(5000) < 10){
             enemy = new Enemy(this);
             if(alt) {
                 world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
@@ -65,7 +62,5 @@ public class EnemyList extends Actor
             }
             this.i++;
         }
-        
-        System.out.println(this.i);
     }    
 }
