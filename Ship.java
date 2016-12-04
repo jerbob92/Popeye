@@ -11,7 +11,7 @@ public class Ship extends Actor
 {
     
     public int start_x = 640;
-    public int start_y = 700;
+    public int start_y = 475;
     
     /**
      * Act - do whatever the Ship wants to do. This method is called whenever
