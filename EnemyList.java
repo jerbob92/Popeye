@@ -54,10 +54,10 @@ public class EnemyList extends Actor
         if(i < this.cranes.length && Greenfoot.getRandomNumber(5000) < 10){
             enemy = new Enemy(this);
             if(alt) {
-                world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
+                world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+200));
                 alt = false;
             } else {
-                world.addObject(enemy,5,Greenfoot.getRandomNumber(100));
+                world.addObject(enemy,5,Greenfoot.getRandomNumber(100)+100);
                 alt = true;
             }
             this.i++;

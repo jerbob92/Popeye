@@ -12,67 +12,75 @@ public class Ship extends Actor
     
     public int start_x = 640;
     public int start_y = 475;
+    boolean movingBack = false;
     
     /**
      * Act - do whatever the Ship wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
     public void act() 
     {
-       
-       
-        
-      
-        
         turnCheck();        
         move();
         reset();
         tow();
-        //aimLine();
-        //test();
         
-    }/*################ACT################*/
+    }
+
     public void turn()
     {
         /*Zorgt ervoor dat het schip kan draaien. 0 is compleet naar rechts,
            180 is compleet naar links*/
-        if(Greenfoot.isKeyDown("left"))
-        {
-            if(getRotation()>= 182 || getRotation() <= 0){turn(-3);}
-            else if (getRotation() == 181){/*niets*/}
+        if(Greenfoot.isKeyDown("left") && !this.movingBack) {
+            int newRotation = getRotation() - 3;
+            if(newRotation > 184) {
+                setRotation(newRotation);
+            }
         }
-        if(Greenfoot.isKeyDown("right"))
-        {
-            if(getRotation()>= 180 && getRotation() <= 358){turn(3);}
-            else if(getRotation() == 359){/*niets*/}            
-        }
-        //aimLine();
+        
+        if(Greenfoot.isKeyDown("right") && !this.movingBack) {
+            int newRotation = getRotation() + 3;
+            if(newRotation < 356) {
+                setRotation(newRotation);
+            }
+            
+       }
     }
+    
     public void move()
     {
         /*Beweegt het schip vooruit.*/
-        if(Greenfoot.isKeyDown("up")){move(8);}
+        if(Greenfoot.isKeyDown("up") && !this.movingBack) {
+            move(8);
+        }
+        
+        if (this.movingBack) {
+            turnTowards(this.start_x,this.start_y);
+            move(4);
+            if(getY() >= this.start_y) {
+                setLocation(this.start_x, this.start_y);
+                setRotation(270);
+                this.movingBack = false;
+            }
+        }
     }
+    
     public void turnCheck()
     {
         /*checkt of de sleepboot op het beginpunt staat. */
-        if(getX() == this.start_x && getY() == this.start_y){turn();}       
+        if(getX() == this.start_x && getY() == this.start_y) {
+            this.movingBack = false;
+            turn();
+        }       
     }
+    
     public void reset()
     {
          /*Checkt of het schip verplaatst is. Zo ja: beweegt hem terug naar de
            startpositie. */
-       if((((getY() != this.start_y) && Greenfoot.isKeyDown("up") != true)|| isAtEdge()))
-       {
-            turnTowards(this.start_x,this.start_y);
-            move(4);
-            if(getX() == this.start_x && getY() == this.start_y)
-            {
-                setRotation(270);
-            }
-        
-        }
+       if((((getY() != this.start_y || getX() != this.start_x) && !Greenfoot.isKeyDown("up")) || isAtEdge())) {
+            this.movingBack = true;
+       }
     }
 
     public void tow()//'sleept' een tanker naar de haven
@@ -86,7 +94,7 @@ public class Ship extends Actor
           enemy.toHarbor();
           
           Ship ship = new Ship();
-          world.addObject(ship,this.start_x,this.start_y);
+          world.addObject(ship, this.start_x, this.start_y);
           ship.setRotation(225);
           world.removeObject(this);
         }   
