@@ -35,6 +35,10 @@ public class EnemyList extends Actor
         return this.cranes[this.currentCrane];
     }
     
+    public int currentCraneI() {
+        return this.currentCrane;
+    }
+    
     public void incrementCrane() {
         this.currentCrane++;
     }
@@ -44,10 +48,10 @@ public class EnemyList extends Actor
         // Add your action code here.
         world = getWorld();
         Actor enemy;
-        if (i == 0) {
+        if (this.i == 0) {
             enemy = new Enemy(this);
             world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
-            i++;
+            this.i++;
         }
         
         if(i<=this.cranes.length && Greenfoot.getRandomNumber(5000) < 10){
@@ -59,7 +63,9 @@ public class EnemyList extends Actor
                 world.addObject(enemy,5,Greenfoot.getRandomNumber(100));
                 alt = true;
             }
-            i++;
+            this.i++;
         }
+        
+        System.out.println(this.i);
     }    
 }

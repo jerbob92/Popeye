@@ -8,12 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends EnemyList
 {
-    int speed = 1;
-    boolean atHarbor = false;
+    int speed;
+    boolean atHarbor;
     EnemyList enemyList;
     public Enemy(EnemyList enemyList)
     {
         this.enemyList = enemyList;
+        this.atHarbor = false;
+        this.speed = 1;
     }
     
     public EnemyList getEnemyList() {
@@ -37,7 +39,7 @@ public class Enemy extends EnemyList
     {   // richt het bootje naar de kraan als hij 'gesleept' wordt.
         Crane currentCrane = this.getEnemyList().currentCrane();
         
-        //System.out.println(currentCrane);
+        System.out.println(this.getEnemyList().currentCraneI());
         
         this.getEnemyList().incrementCrane();
         turnTowards(currentCrane.getX() - (currentCrane.getImage().getWidth() / 2), currentCrane.getY());
