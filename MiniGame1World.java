@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import javax.swing.*;
 
 /**
  * Write a description of class MiniGame1World here.
@@ -41,7 +42,10 @@ public class MiniGame1World extends World
     public void buttonPressed()
     {
         if(Greenfoot.isKeyDown("escape")) {
-            Greenfoot.setWorld(new MainMenuWorld());
+            int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
+            if(n == 0) {
+                Greenfoot.setWorld(new MainMenuWorld());
+            }
         }     
     }
 }
