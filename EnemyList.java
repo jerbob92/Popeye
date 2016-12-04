@@ -24,18 +24,13 @@ public class EnemyList extends Actor
     {
         // Add your action code here.
         world = getWorld();
-        int random = Greenfoot.getRandomNumber(700);
         
-        if((random <= 10)&&(i<=3))
-        {
+        if(i<=3 && Greenfoot.getRandomNumber(10000) < 10){
             Actor enemy = new Enemy();
-            if(alt)
-            {
+            if(alt) {
                 world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
                 alt = false;
-            }
-            else if(!alt)
-            {
+            } else {
                 world.addObject(enemy,5,Greenfoot.getRandomNumber(100));
                 alt = true;
             }
