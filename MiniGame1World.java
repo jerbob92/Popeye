@@ -17,5 +17,19 @@ public class MiniGame1World extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1280, 720, 1); 
+        prepare();
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Ship ship = new Ship();
+        EnemyList enemyList = new EnemyList();
+        addObject(enemyList,0,0);
+        addObject(ship,300,335);
+        ship.setRotation(225);
     }
 }
