@@ -73,6 +73,7 @@ public class Enemy extends EnemyList
             this.atHarbor = true;
             setRotation(0); 
             setLocation(crane.getX(), crane.getY()-30);
+            this.target.setFinished(true);
         }
     }
     

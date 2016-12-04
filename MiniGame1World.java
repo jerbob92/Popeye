@@ -10,6 +10,8 @@ import javax.swing.*;
 public class MiniGame1World extends World
 {
 
+    EnemyList enemyList;
+    
     /**
      * Constructor for objects of class MiniGame1World.
      * 
@@ -64,8 +66,8 @@ public class MiniGame1World extends World
         Crane[] cranes = new Crane[] { crane1, crane2, crane3, crane4, crane5, crane6 };
        
         Ship ship = new Ship();
-        EnemyList enemyList = new EnemyList();
-        enemyList.setCranes(cranes);
+        this.enemyList = new EnemyList();
+        this.enemyList.setCranes(cranes);
         addObject(enemyList,0,0);
         addObject(ship,ship.start_x,ship.start_y);
         ship.setRotation(225);
@@ -74,15 +76,27 @@ public class MiniGame1World extends World
     public void act()
     {
         buttonPressed();
+        if (this.enemyList.finished()) {
+            this.Win();
+        }
     }
     
     public void gameOver() {
         int n = JOptionPane.showConfirmDialog(null, "Game over! Do you want to try again?", "Game Over!", JOptionPane.YES_NO_OPTION);
-            if (n == 0) {
-                Greenfoot.setWorld(new MiniGame1World());
-            } else {
-                Greenfoot.setWorld(new MainMenuWorld());
-            }
+        if (n == 0) {
+            Greenfoot.setWorld(new MiniGame1World());
+        } else {
+            Greenfoot.setWorld(new MainMenuWorld());
+        }
+    }
+    
+    public void Win() {
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to play again?", "Winner!", JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
+            Greenfoot.setWorld(new MiniGame1World());
+        } else {
+            Greenfoot.setWorld(new MainMenuWorld());
+        }
     }
     
     public void buttonPressed()

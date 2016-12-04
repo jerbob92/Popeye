@@ -63,4 +63,13 @@ public class EnemyList extends Actor
             this.i++;
         }
     }    
+    
+    public boolean finished() {
+        for(int i =0; i < this.cranes.length; i++) {
+            if (!this.cranes[i].finished()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
