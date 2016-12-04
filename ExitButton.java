@@ -8,9 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ExitButton extends Button
 {
-    public ExitButton(String text) {
-       super(text);
-    }
     
     /**
      * Act - do whatever the ExitButton wants to do. This method is called whenever
