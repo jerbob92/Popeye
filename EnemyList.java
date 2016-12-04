@@ -26,7 +26,7 @@ public class EnemyList extends Actor
         world = getWorld();
         int random = Greenfoot.getRandomNumber(700);
         
-        if((random <= 10)&&(i<=5))
+        if((random <= 10)&&(i<=3))
         {
             Actor enemy = new Enemy();
             if(alt)

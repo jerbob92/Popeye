@@ -15,7 +15,7 @@ public class Enemy extends EnemyList
     int speed;
     public Enemy()
     {   //bepaald een random snelheid voor het bootje.
-        this.speed = Greenfoot.getRandomNumber(2)+1;
+        this.speed = 1;
         
     }
     public void act() 

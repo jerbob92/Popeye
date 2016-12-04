@@ -37,12 +37,12 @@ public class Ship extends Actor
     {
         /*Zorgt ervoor dat het schip kan draaien. 0 is compleet naar rechts,
            180 is compleet naar links*/
-        if(Greenfoot.isKeyDown("a"))
+        if(Greenfoot.isKeyDown("left"))
         {
             if(getRotation()>= 182 || getRotation() <= 0){turn(-3);}
             else if (getRotation() == 181){/*niets*/}
         }
-        if(Greenfoot.isKeyDown("d"))
+        if(Greenfoot.isKeyDown("right"))
         {
             if(getRotation()>= 180 && getRotation() <= 358){turn(3);}
             else if(getRotation() == 359){/*niets*/}            
@@ -52,7 +52,7 @@ public class Ship extends Actor
     public void move()
     {
         /*Beweegt het schip vooruit.*/
-        if(Greenfoot.isKeyDown("w")){move(8);}
+        if(Greenfoot.isKeyDown("up")){move(8);}
     }
     public void turnCheck()
     {
@@ -63,7 +63,7 @@ public class Ship extends Actor
     {
          /*Checkt of het schip verplaatst is. Zo ja: beweegt hem terug naar de
            startpositie. */
-       if((((getY() != this.start_y) && Greenfoot.isKeyDown("w") != true)|| isAtEdge()))
+       if((((getY() != this.start_y) && Greenfoot.isKeyDown("up") != true)|| isAtEdge()))
        {
             turnTowards(this.start_x,this.start_y);
             move(4);
