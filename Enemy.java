@@ -36,6 +36,7 @@ public class Enemy extends EnemyList
             moveToHarbor();
             move(speed);
             edgeCheck();
+            gameOverCheck();
         }  
     }
     
@@ -72,6 +73,14 @@ public class Enemy extends EnemyList
             this.atHarbor = true;
             setRotation(0); 
             setLocation(crane.getX(), crane.getY()-30);
+        }
+    }
+    
+    public void gameOverCheck() {
+        if (isAtEdge()) {
+          MiniGame1World world;
+          world = (MiniGame1World) getWorld();
+          world.gameOver();
         }
     }
 }

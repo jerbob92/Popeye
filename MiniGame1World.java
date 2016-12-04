@@ -76,6 +76,15 @@ public class MiniGame1World extends World
         buttonPressed();
     }
     
+    public void gameOver() {
+        int n = JOptionPane.showConfirmDialog(null, "Game over! Do you want to try again?", "Game Over!", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                Greenfoot.setWorld(new MiniGame1World());
+            } else {
+                Greenfoot.setWorld(new MainMenuWorld());
+            }
+    }
+    
     public void buttonPressed()
     {
         if(Greenfoot.isKeyDown("escape")) {
