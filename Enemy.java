@@ -10,6 +10,7 @@ public class Enemy extends EnemyList
 {
     int speed;
     boolean atHarbor;
+    long harborArriveTime;
     EnemyList enemyList;
     Crane target;
     
@@ -37,7 +38,13 @@ public class Enemy extends EnemyList
             move(speed);
             edgeCheck();
             gameOverCheck();
-        }  
+        } else {
+            viewPortCheck();
+            long elapsedTime = System.currentTimeMillis() - this.harborArriveTime;
+            if (elapsedTime / 1000 > 5) {
+                move(speed);
+            }
+        }
     }
     
     public boolean hasTarget() {
@@ -71,9 +78,18 @@ public class Enemy extends EnemyList
         if (crane != null) {
             // Boot is bij de kraan, zet stil en richt goed.
             this.atHarbor = true;
+            this.harborArriveTime = System.currentTimeMillis();
             setRotation(0); 
             setLocation(crane.getX(), crane.getY()-30);
             this.target.setFinished(true);
+        }
+    }
+    
+    public void viewPortCheck() {
+        if (isAtEdge()) {
+          MiniGame1World world;
+          world = (MiniGame1World) getWorld();
+          world.removeObject(this);
         }
     }
     

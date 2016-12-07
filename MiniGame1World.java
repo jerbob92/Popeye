@@ -76,9 +76,6 @@ public class MiniGame1World extends World
     public void act()
     {
         buttonPressed();
-        if (this.enemyList.finished()) {
-            this.Win();
-        }
     }
     
     public void gameOver() {

@@ -59,7 +59,7 @@ public class Ship extends Actor
             move(4);
             if(getY() >= this.start_y) {
                 setLocation(this.start_x, this.start_y);
-                setRotation(270);
+                turn(180);
                 this.movingBack = false;
             }
         }
