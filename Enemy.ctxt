@@ -19,5 +19,5 @@ comment7.target=void\ edgeCheck()
 comment8.params=
 comment8.target=void\ viewPortCheck()
 comment9.params=
-comment9.target=void\ gameOverCheck()
+comment9.target=void\ substractLifeCheck()
 numComments=10

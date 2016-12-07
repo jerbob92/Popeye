@@ -37,7 +37,7 @@ public class Enemy extends EnemyList
             moveToHarbor();
             move(speed);
             edgeCheck();
-            gameOverCheck();
+            substractLifeCheck();
         } else {
             viewPortCheck();
             long elapsedTime = System.currentTimeMillis() - this.harborArriveTime;
@@ -93,11 +93,12 @@ public class Enemy extends EnemyList
         }
     }
     
-    public void gameOverCheck() {
+    public void substractLifeCheck() {
         if (isAtEdge()) {
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
-          world.gameOver();
+          world.removeObject(this);
+          // @todo: substract 1 life.
         }
     }
 }
