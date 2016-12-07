@@ -29,7 +29,11 @@ public class MiniGame1World extends World
      */
     private void prepare()
     {
-                // Add quay.
+        // Add timer.
+        Timer timer = new Timer();
+        addObject(timer,1150,50);
+        
+        // Add quay.
         Quay quay = new Quay();
         addObject(quay,640,680);
         
@@ -76,9 +80,6 @@ public class MiniGame1World extends World
     public void act()
     {
         buttonPressed();
-        if (this.enemyList.finished()) {
-            this.Win();
-        }
     }
     
     public void gameOver() {
