@@ -29,7 +29,11 @@ public class MiniGame1World extends World
      */
     private void prepare()
     {
-                // Add quay.
+        // Add timer.
+        Timer timer = new Timer();
+        addObject(timer,1150,50);
+        
+        // Add quay.
         Quay quay = new Quay();
         addObject(quay,640,680);
         

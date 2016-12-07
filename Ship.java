@@ -23,8 +23,8 @@ public class Ship extends Actor
         turnCheck();        
         move();
         reset();
-        tow();
         privateBoatCheck();
+        tow();
         
     }
 

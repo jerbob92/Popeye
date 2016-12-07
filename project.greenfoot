@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Dec 07 21:35:53 CET 2016
+#Wed Dec 07 21:44:09 CET 2016
 editor.fx.0.height=700
 target2.width=100
 target8.name=Enemy
@@ -189,5 +189,6 @@ readme.x=10
 target4.height=50
 target12.typeParameters=
 readme.height=58
+class.Timer.superclass=greenfoot.Actor
 target1.width=100
 dependency14.to=Quay
