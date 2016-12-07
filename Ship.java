@@ -24,6 +24,7 @@ public class Ship extends Actor
         move();
         reset();
         tow();
+        privateBoatCheck();
         
     }
 
@@ -98,5 +99,18 @@ public class Ship extends Actor
           ship.setRotation(225);
           world.removeObject(this);
         }   
+    }
+    
+    public void privateBoatCheck()//Botsing met een private ship?
+    {
+      PrivateBoat private_boat;
+      private_boat = (PrivateBoat)getOneObjectAtOffset(0,0, PrivateBoat.class);
+      if(private_boat != null){
+          this.movingBack = true;
+          // @todo: substract 1 life.
+          World world;
+          world = getWorld();
+          world.removeObject(private_boat);
+      }   
     }
 }
