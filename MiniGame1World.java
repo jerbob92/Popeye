@@ -31,7 +31,7 @@ public class MiniGame1World extends World
     {
         // Add timer.
         Timer timer = new Timer();
-        addObject(timer,1150,50);
+        addObject(timer,1200,50);
         
         // Add quay.
         Quay quay = new Quay();
@@ -64,6 +64,11 @@ public class MiniGame1World extends World
         addObject(containers4,630,680);
         addObject(containers5,830,680);
         addObject(containers6,1030,680);
+        
+        //Add Lives
+        Lives lives = new Lives();
+        addObject(lives, 0,0);
+        lives.setupLives();
         
         this.setPaintOrder(Crane.class, Containers.class, Enemy.class, Quay.class);
 

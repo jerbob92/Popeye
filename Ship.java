@@ -107,7 +107,7 @@ public class Ship extends Actor
       private_boat = (PrivateBoat)getOneObjectAtOffset(0,0, PrivateBoat.class);
       if(private_boat != null){
           this.movingBack = true;
-          // @todo: substract 1 life.
+          Lives.removeLife();
           World world;
           world = getWorld();
           world.removeObject(private_boat);
