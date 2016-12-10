@@ -45,6 +45,7 @@ public class Enemy extends EnemyList
                 move(speed);
             }
         }
+        
     }
     
     public boolean hasTarget() {
@@ -87,6 +88,7 @@ public class Enemy extends EnemyList
     
     public void viewPortCheck() {
         if (isAtEdge()) {
+          
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
           world.removeObject(this);
@@ -95,6 +97,8 @@ public class Enemy extends EnemyList
     
     public void substractLifeCheck() {
         if (isAtEdge()) {
+          i=0;  
+          Lives.removeLife();
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
           world.removeObject(this);
