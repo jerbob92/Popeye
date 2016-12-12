@@ -106,11 +106,11 @@ public class Ship extends Actor
       PrivateBoat private_boat;
       private_boat = (PrivateBoat)getOneObjectAtOffset(0,0, PrivateBoat.class);
       if(private_boat != null){
-          this.movingBack = true;
-          Lives.removeLife();
-          World world;
-          world = getWorld();
-          world.removeObject(private_boat);
+          if (!private_boat.isExploded()) {
+            this.movingBack = true;
+            Lives.removeLife();
+            private_boat.explode();
+          }
       }   
     }
 }
