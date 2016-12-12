@@ -8,21 +8,44 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PrivateBoat extends EnemyList
 {
+    
+    long removeAt;
+    boolean exploded = false;
+    
     /**
      * Act - do whatever the PrivateBoat wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        move(2);
-        edgeCheck();
+        if (!this.exploded) {
+            move(2);
+            edgeCheck();
+        } else {
+            if (System.currentTimeMillis() > this.removeAt) {
+                World world;
+                world = getWorld();
+                world.removeObject(this);
+            }
+        }
     }    
     
-     public void edgeCheck() {
+    public void edgeCheck() {
         if (isAtEdge()) {
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
           world.removeObject(this);
         }
+    }
+    
+    public void explode() {
+          GifImage gifImage = new GifImage("explosion.gif");
+          this.setImage(gifImage.getCurrentImage());
+          this.exploded = true;
+          this.removeAt = System.currentTimeMillis() + 500;
+    }
+    
+    public boolean isExploded() {
+        return this.exploded;
     }
 }
