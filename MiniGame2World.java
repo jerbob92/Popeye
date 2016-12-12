@@ -21,7 +21,7 @@ public class MiniGame2World extends World
     }
     
     private void prepare() {
-        MG2Ship ship = new MG2Ship();
+        MG2Ship ship = new MG2Ship(this);
         addObject(ship,400,615);
     }
 }
