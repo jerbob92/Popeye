@@ -52,7 +52,7 @@ public class Ship extends Actor
     {
         /*Beweegt het schip vooruit.*/
         if(Greenfoot.isKeyDown("up") && !this.movingBack) {
-            move(8);
+            move(4);
         }
         
         if (this.movingBack) {
@@ -108,7 +108,9 @@ public class Ship extends Actor
       if(private_boat != null){
           if (!private_boat.isExploded()) {
             this.movingBack = true;
-            Lives.removeLife();
+            MiniGame1World world;
+            world = (MiniGame1World) getWorld();
+            world.lives.removeLife();
             private_boat.explode();
           }
       }   

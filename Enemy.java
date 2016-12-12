@@ -98,11 +98,11 @@ public class Enemy extends EnemyList
     public void substractLifeCheck() {
         if (isAtEdge()) {
           i=0;  
-          Lives.removeLife();
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
+          world.lives.removeLife();
           world.removeObject(this);
-          // @todo: substract 1 life.
+
         }
     }
 }

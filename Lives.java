@@ -12,9 +12,9 @@ public class Lives extends Actor
      * Act - do whatever the Lives wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    static public Life[] lives = new Life[3];
+    public Life[] lives = new Life[3];
     //Life life1 = new Life();
-    static MiniGame1World world;
+    MiniGame1World world;
     public Lives()
     {  
         //this.world = (MiniGame1World) getWorld(); 
@@ -23,10 +23,12 @@ public class Lives extends Actor
         this.lives[2]= new Life();
         //setupLives();
     }
+    
     public void act() 
     {
         // Add your action code here.
     }   
+    
     public void setupLives()
     {
         this.world = (MiniGame1World)getWorld();
@@ -34,7 +36,8 @@ public class Lives extends Actor
         this.world.addObject(this.lives[1],world.getWidth()-200,50);
         this.world.addObject(this.lives[2],world.getWidth()-250,50);
     }
-    static public void removeLife()
+    
+    public void removeLife()
     {
         for (int i=2; i>=0;i--)
         {
@@ -43,7 +46,7 @@ public class Lives extends Actor
                 lives[i].alive = false;
                 world.gameOver();
             }
-            if (lives[i].alive)
+            if (this.lives[i].alive)
             {
                 lives[i].alive = false;
                 break;
