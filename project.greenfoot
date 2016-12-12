@@ -1,5 +1,6 @@
 #Greenfoot properties
-#Mon Dec 12 13:09:58 CET 2016
+#Mon Dec 12 15:24:16 CET 2016
+class.MiniGame2World.image=Sea.png
 editor.fx.0.height=700
 target2.width=90
 target8.name=EnemyList
@@ -30,6 +31,7 @@ target6.x=10
 dependency19.to=MiniGame1World
 target1.showInterface=false
 class.Quay.superclass=greenfoot.Actor
+class.GifImage.superclass=
 target4.y=310
 dependency10.from=MiniGame1World
 target4.x=100
@@ -77,6 +79,7 @@ target5.height=50
 dependency22.to=PrivateBoat
 target10.name=Button
 dependency13.type=UsesDependency
+class.MiniGame2World.superclass=greenfoot.World
 dependency23.type=UsesDependency
 target15.typeParameters=
 target2.type=ClassTarget
