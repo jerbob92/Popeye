@@ -18,12 +18,12 @@ public class Life extends Actor
         // Add your action code here.
         if(alive)
         {
-            GreenfootImage imgAlive = new GreenfootImage("balloon2.png");
+            GreenfootImage imgAlive = new GreenfootImage("HeartL.png");
             this.setImage(imgAlive);
         }
         if(!alive)
         {
-            GreenfootImage imgDead = new GreenfootImage("balloon1.png");
+            GreenfootImage imgDead = new GreenfootImage("HeartD.png");
             this.setImage(imgDead);   
         }
     }    

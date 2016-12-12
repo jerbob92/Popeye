@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Timer extends Actor
 {
     long startTime;
-    long gameTime = 300;
+    long gameTime = 120;
     
     public Timer() {
          this.startTime = System.currentTimeMillis();
