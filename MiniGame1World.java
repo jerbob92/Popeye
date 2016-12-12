@@ -11,6 +11,7 @@ public class MiniGame1World extends World
 {
 
     EnemyList enemyList;
+    public Lives lives;
     
     /**
      * Constructor for objects of class MiniGame1World.
@@ -66,9 +67,9 @@ public class MiniGame1World extends World
         addObject(containers6,1030,680);
         
         //Add Lives
-        Lives lives = new Lives();
-        addObject(lives, 0,0);
-        lives.setupLives();
+        this.lives = new Lives();
+        addObject(this.lives, 0,0);
+        this.lives.setupLives();
         
         this.setPaintOrder(Crane.class, Containers.class, Enemy.class, Quay.class);
 

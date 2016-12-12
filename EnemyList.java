@@ -68,7 +68,7 @@ public class EnemyList extends Actor
             this.i++;
         }
         
-        if(Greenfoot.getRandomNumber(5000) < 10){
+        if(Greenfoot.getRandomNumber(2000) < 10){
             PrivateBoat private_boat = new PrivateBoat();
             if(privateBoatAlt) {
                 world.addObject(private_boat,5,(Greenfoot.getRandomNumber(100)+200));
