@@ -11,6 +11,11 @@ public class PrivateBoat extends EnemyList
     
     long removeAt;
     boolean exploded = false;
+    GifImage gifImage;
+    
+    public PrivateBoat() {
+        this.gifImage = new GifImage("explosion.gif");
+    }
     
     /**
      * Act - do whatever the PrivateBoat wants to do. This method is called whenever
@@ -26,6 +31,8 @@ public class PrivateBoat extends EnemyList
                 World world;
                 world = getWorld();
                 world.removeObject(this);
+            } else {
+                this.setImage(this.gifImage.getCurrentImage());
             }
         }
     }    
@@ -39,10 +46,9 @@ public class PrivateBoat extends EnemyList
     }
     
     public void explode() {
-          GifImage gifImage = new GifImage("explosion.gif");
           this.setImage(gifImage.getCurrentImage());
           this.exploded = true;
-          this.removeAt = System.currentTimeMillis() + 500;
+          this.removeAt = System.currentTimeMillis() + 700;
     }
     
     public boolean isExploded() {
