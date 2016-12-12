@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Dec 12 15:24:16 CET 2016
+#Mon Dec 12 15:29:18 CET 2016
 class.MiniGame2World.image=Sea.png
 editor.fx.0.height=700
 target2.width=90
@@ -111,6 +111,7 @@ dependency25.from=Lives
 class.Containers.superclass=greenfoot.Actor
 class.AimLine.superclass=greenfoot.Actor
 target15.type=ClassTarget
+class.MG2Ship.superclass=greenfoot.Actor
 mainWindow.y=24
 editor.swing.0.y=24
 mainWindow.x=0
@@ -192,6 +193,7 @@ class.Ship.image=Tugboat.png
 dependency16.from=Enemy
 dependency26.from=Enemy
 dependency2.from=ExitButton
+class.MG2Ship.image=MG2Ship.png
 target16.type=ClassTarget
 target16.height=50
 dependency6.from=MiniGame1World

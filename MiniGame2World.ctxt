@@ -4,4 +4,6 @@ comment0.text=\n\ Write\ a\ description\ of\ class\ MiniGame2World\ here.\n\ \n\
 comment1.params=
 comment1.target=MiniGame2World()
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ MiniGame2World.\n\ \n
-numComments=2
+comment2.params=
+comment2.target=void\ prepare()
+numComments=3
