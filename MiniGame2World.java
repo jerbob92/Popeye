@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import javax.swing.*;
 
 /**
  * Write a description of class MiniGame2World here.
@@ -8,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MiniGame2World extends World
 {
+    
+    MG2Ship ship;
 
     /**
      * Constructor for objects of class MiniGame2World.
@@ -23,12 +26,30 @@ public class MiniGame2World extends World
     private void prepare() {    
         MG2Train train = new MG2Train();
         addObject(train,1100,580);
-        train.addDummy();
         
-        MG2Ship ship = new MG2Ship(this, train);
+        this.ship = new MG2Ship(this, train);
         addObject(ship,400,615);
         
         MG2Hook hook = new MG2Hook();
         addObject(hook,450,-250);
+    }
+    
+    public void act()
+    {
+        buttonPressed();
+    }
+    
+    public void buttonPressed()
+    {
+        if(Greenfoot.isKeyDown("escape")) {
+            int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                Greenfoot.setWorld(new MainMenuWorld());
+            }
+        }     
+    }
+    
+    public MG2Ship getShip() {
+        return this.ship;
     }
 }

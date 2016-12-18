@@ -1,9 +1,21 @@
 #BlueJ class context
 comment0.target=MG2Container
 comment0.text=\n\ Write\ a\ description\ of\ class\ MG2Container\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=isDummy
-comment1.target=MG2Container(boolean)
+comment1.params=isDummy\ train\ world
+comment1.target=MG2Container(boolean,\ MG2Train,\ MiniGame2World)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ MG2Container\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=3
+comment3.params=transparency
+comment3.target=void\ setImageTransparency(int)
+comment4.params=
+comment4.target=boolean\ isDummy()
+comment5.params=
+comment5.target=int\ getType()
+comment6.params=
+comment6.target=MG2Train\ getTrain()
+comment7.params=
+comment7.target=MG2Container\ touchingDummyContainer()
+comment8.params=
+comment8.target=boolean\ touchingAnotherContainer()
+numComments=9
