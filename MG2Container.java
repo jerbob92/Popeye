@@ -10,10 +10,18 @@ public class MG2Container extends Actor
 {
     
     int type;
+    boolean dummy;
     
-    public MG2Container() {
+    public MG2Container(boolean isDummy) {
         this.type = Greenfoot.getRandomNumber(4) + 1;
         GreenfootImage img = new GreenfootImage("MG2Container-" + this.type + ".png");
+        
+        this.dummy = isDummy;
+        
+        if (this.dummy) {
+            img.setTransparency(255);
+        }
+        
         this.setImage(img);
         
     }

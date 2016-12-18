@@ -20,8 +20,15 @@ public class MiniGame2World extends World
         prepare();
     }
     
-    private void prepare() {
-        MG2Ship ship = new MG2Ship(this);
+    private void prepare() {    
+        MG2Train train = new MG2Train();
+        addObject(train,1100,580);
+        train.addDummy();
+        
+        MG2Ship ship = new MG2Ship(this, train);
         addObject(ship,400,615);
+        
+        MG2Hook hook = new MG2Hook();
+        addObject(hook,450,-250);
     }
 }

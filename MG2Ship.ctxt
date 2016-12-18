@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=MG2Ship
 comment0.text=\n\ Write\ a\ description\ of\ class\ MG2Ship\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=world
-comment1.target=MG2Ship(greenfoot.World)
+comment1.params=world\ train
+comment1.target=MG2Ship(greenfoot.World,\ MG2Train)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ MG2Ship\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
