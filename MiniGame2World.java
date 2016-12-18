@@ -52,4 +52,13 @@ public class MiniGame2World extends World
     public MG2Ship getShip() {
         return this.ship;
     }
+    
+    public void win() {
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to play again?", "Winner!", JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
+            Greenfoot.setWorld(new MiniGame2World());
+        } else {
+            Greenfoot.setWorld(new MainMenuWorld());
+        }
+    }
 }

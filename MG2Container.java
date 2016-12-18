@@ -27,6 +27,8 @@ public class MG2Container extends Actor
                 this.type = randomContainer.getType();
                 img = new GreenfootImage("MG2Container-" + this.type + ".png");
                 this.setImage(img);
+            } else {
+                world.win();
             }
             this.setImageTransparency(125);
         }
