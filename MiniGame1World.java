@@ -66,7 +66,7 @@ public class MiniGame1World extends World
         addObject(containers5,830,680);
         addObject(containers6,1030,680);
         
-        //Add Lives
+        //Add Livesg
         this.lives = new Lives();
         addObject(this.lives, 0,0);
         this.lives.setupLives();

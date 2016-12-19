@@ -23,6 +23,7 @@ public class EnemyList extends Actor
         this.currentCrane = 0;
         this.i = 0;
         this.alt = true;
+        getImage().setTransparency(0);
     }
     
     public void setCranes(Crane[] cranes) {
