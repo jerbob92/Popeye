@@ -7,12 +7,12 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Timer extends Actor
+public class MG1Timer extends Actor
 {
     long startTime;
     long gameTime = 120;
     
-    public Timer() {
+    public MG1Timer() {
          this.startTime = System.currentTimeMillis();
     }
     

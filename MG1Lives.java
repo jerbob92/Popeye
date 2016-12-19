@@ -6,22 +6,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Lives extends Actor
+public class MG1Lives extends Actor
 {
     /**
      * Act - do whatever the Lives wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Life[] lives = new Life[3];
+    public MG1Life[] lives = new MG1Life[3];
     //Life life1 = new Life();
     MiniGame1World world;
-    public Lives()
+    public MG1Lives()
     {  
-        //this.world = (MiniGame1World) getWorld(); 
-        this.lives[0] = new Life();
-        this.lives[1]= new Life(); 
-        this.lives[2]= new Life();
-        //setupLives();
+        this.lives[0] = new MG1Life();
+        this.lives[1]= new MG1Life(); 
+        this.lives[2]= new MG1Life();
     }
     
     public void act() 

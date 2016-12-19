@@ -1,12 +1,12 @@
 #BlueJ class context
-comment0.target=EnemyList
+comment0.target=MG1EnemyList
 comment0.text=\n\ Write\ a\ description\ of\ class\ EnemyList\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=EnemyList()
+comment1.target=MG1EnemyList()
 comment2.params=cranes
-comment2.target=void\ setCranes(Crane[])
+comment2.target=void\ setCranes(MG1Crane[])
 comment3.params=
-comment3.target=Crane\ currentCrane()
+comment3.target=MG1Crane\ currentCrane()
 comment4.params=
 comment4.target=int\ currentCraneI()
 comment5.params=

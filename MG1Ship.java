@@ -7,7 +7,7 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Ship extends Actor
+public class MG1Ship extends Actor
 {
     
     public int start_x = 640;
@@ -86,15 +86,15 @@ public class Ship extends Actor
 
     public void tow()//'sleept' een tanker naar de haven
     {
-      Enemy enemy;
-      enemy = (Enemy)getOneObjectAtOffset(0,0, Enemy.class);
+      MG1Enemy enemy;
+      enemy = (MG1Enemy)getOneObjectAtOffset(0,0, MG1Enemy.class);
       if(enemy != null && !enemy.hasTarget()){
           World world;
           world = getWorld();
           
           enemy.toHarbor();
           
-          Ship ship = new Ship();
+          MG1Ship ship = new MG1Ship();
           world.addObject(ship, this.start_x, this.start_y);
           ship.setRotation(225);
           world.removeObject(this);
@@ -103,8 +103,8 @@ public class Ship extends Actor
     
     public void privateBoatCheck()//Botsing met een private ship?
     {
-      PrivateBoat private_boat;
-      private_boat = (PrivateBoat)getOneObjectAtOffset(0,0, PrivateBoat.class);
+      MG1PrivateBoat private_boat;
+      private_boat = (MG1PrivateBoat)getOneObjectAtOffset(0,0, MG1PrivateBoat.class);
       if(private_boat != null){
           if (!private_boat.isExploded()) {
             this.movingBack = true;

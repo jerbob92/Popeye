@@ -6,15 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PrivateBoat extends EnemyList
+public class MG1PrivateBoat extends MG1EnemyList
 {
     
     long removeAt;
     boolean exploded = false;
     GifImage gifImage;
     
-    public PrivateBoat() {
+    public MG1PrivateBoat() {
         this.gifImage = new GifImage("explosion.gif");
+        
+        GreenfootImage img = new GreenfootImage("ship4.png");
+        this.setImage(img);
     }
     
     /**

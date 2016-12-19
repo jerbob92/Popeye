@@ -6,23 +6,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy extends EnemyList
+public class MG1Enemy extends MG1EnemyList
 {
     int speed;
     boolean atHarbor;
     long harborArriveTime;
-    EnemyList enemyList;
-    Crane target;
+    MG1EnemyList enemyList;
+    MG1Crane target;
     
-    public Enemy(EnemyList enemyList)
+    public MG1Enemy(MG1EnemyList enemyList)
     {
+        GreenfootImage img = new GreenfootImage("containership.png");
+        this.setImage(img);
+        
         this.enemyList = enemyList;
         this.atHarbor = false;
         this.speed = 1;
         this.target = null;
     }
     
-    public EnemyList getEnemyList() {
+    public MG1EnemyList getEnemyList() {
         return this.enemyList;
     }
     
@@ -74,8 +77,8 @@ public class Enemy extends EnemyList
     public void edgeCheck()
     {
         // Kijk of de boot bij de kraan staat.
-        Crane crane;
-        crane = (Crane)getOneObjectAtOffset(0,0, Crane.class);
+        MG1Crane crane;
+        crane = (MG1Crane)getOneObjectAtOffset(0,0, MG1Crane.class);
         if (crane != null) {
             // Boot is bij de kraan, zet stil en richt goed.
             this.atHarbor = true;

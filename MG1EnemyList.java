@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnemyList extends Actor
+public class MG1EnemyList extends Actor
 {
     /**
      * Act - do whatever the EnemyList wants to do. This method is called whenever
@@ -16,21 +16,21 @@ public class EnemyList extends Actor
     int i;
     boolean alt;
     boolean privateBoatAlt;
-    Crane[] cranes;
+    MG1Crane[] cranes;
     int currentCrane;
     
-    public EnemyList(){
+    public MG1EnemyList(){
         this.currentCrane = 0;
         this.i = 0;
         this.alt = true;
         getImage().setTransparency(0);
     }
     
-    public void setCranes(Crane[] cranes) {
+    public void setCranes(MG1Crane[] cranes) {
         this.cranes = cranes;
     }
     
-    public Crane currentCrane() {
+    public MG1Crane currentCrane() {
         return this.cranes[this.currentCrane];
     }
     
@@ -52,13 +52,13 @@ public class EnemyList extends Actor
         world = getWorld();
         Actor enemy;
         if (this.i == 0) {
-            enemy = new Enemy(this);
+            enemy = new MG1Enemy(this);
             world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
             this.i++;
         }
         
         if(Greenfoot.getRandomNumber(5000) < 10){
-            enemy = new Enemy(this);
+            enemy = new MG1Enemy(this);
             if(alt) {
                 world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+200));
                 alt = false;
@@ -70,7 +70,7 @@ public class EnemyList extends Actor
         }
         
         if(Greenfoot.getRandomNumber(2000) < 10){
-            PrivateBoat private_boat = new PrivateBoat();
+            MG1PrivateBoat private_boat = new MG1PrivateBoat();
             if(privateBoatAlt) {
                 world.addObject(private_boat,5,(Greenfoot.getRandomNumber(100)+200));
                 privateBoatAlt = false;
