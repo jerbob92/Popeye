@@ -25,7 +25,7 @@ public class MiniGame2World extends World
     
     private void prepare() {   
         
-        Quay quay = new Quay();
+        MG2Quay quay = new MG2Quay();
         addObject(quay, 640,680);
         
         MG2Train train = new MG2Train();
