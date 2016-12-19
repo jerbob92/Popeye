@@ -10,8 +10,8 @@ import javax.swing.*;
 public class MiniGame1World extends World
 {
 
-    EnemyList enemyList;
-    public Lives lives;
+    MG1EnemyList enemyList;
+    public MG1Lives lives;
     
     /**
      * Constructor for objects of class MiniGame1World.
@@ -31,20 +31,20 @@ public class MiniGame1World extends World
     private void prepare()
     {
         // Add timer.
-        Timer timer = new Timer();
+        MG1Timer timer = new MG1Timer();
         addObject(timer,1200,50);
         
         // Add quay.
-        Quay quay = new Quay();
+        MG1Quay quay = new MG1Quay();
         addObject(quay,640,680);
         
         // Add cranes.
-        Crane crane1 = new Crane();
-        Crane crane2 = new Crane();
-        Crane crane3 = new Crane();
-        Crane crane4 = new Crane();
-        Crane crane5 = new Crane();
-        Crane crane6 = new Crane();
+        MG1Crane crane1 = new MG1Crane();
+        MG1Crane crane2 = new MG1Crane();
+        MG1Crane crane3 = new MG1Crane();
+        MG1Crane crane4 = new MG1Crane();
+        MG1Crane crane5 = new MG1Crane();
+        MG1Crane crane6 = new MG1Crane();
         addObject(crane1,100,655);
         addObject(crane2,300,655);        
         addObject(crane3,500,655);
@@ -53,12 +53,12 @@ public class MiniGame1World extends World
         addObject(crane6,1100,655);
         
         // Add containers.
-        Containers containers1 = new Containers();
-        Containers containers2 = new Containers();
-        Containers containers3 = new Containers();
-        Containers containers4 = new Containers();
-        Containers containers5 = new Containers();
-        Containers containers6 = new Containers();
+        MG1Containers containers1 = new MG1Containers();
+        MG1Containers containers2 = new MG1Containers();
+        MG1Containers containers3 = new MG1Containers();
+        MG1Containers containers4 = new MG1Containers();
+        MG1Containers containers5 = new MG1Containers();
+        MG1Containers containers6 = new MG1Containers();
         addObject(containers1,30,680);
         addObject(containers2,230,680);
         addObject(containers3,430,680);
@@ -67,16 +67,16 @@ public class MiniGame1World extends World
         addObject(containers6,1030,680);
         
         //Add Livesg
-        this.lives = new Lives();
+        this.lives = new MG1Lives();
         addObject(this.lives, 0,0);
         this.lives.setupLives();
         
-        this.setPaintOrder(Crane.class, Containers.class, Enemy.class, Quay.class);
+        this.setPaintOrder(MG1Crane.class, MG1Containers.class, MG1Enemy.class, MG1Quay.class);
 
-        Crane[] cranes = new Crane[] { crane1, crane2, crane3, crane4, crane5, crane6 };
+        MG1Crane[] cranes = new MG1Crane[] { crane1, crane2, crane3, crane4, crane5, crane6 };
        
-        Ship ship = new Ship();
-        this.enemyList = new EnemyList();
+        MG1Ship ship = new MG1Ship();
+        this.enemyList = new MG1EnemyList();
         this.enemyList.setCranes(cranes);
         addObject(enemyList,0,0);
         addObject(ship,ship.start_x,ship.start_y);
@@ -98,9 +98,9 @@ public class MiniGame1World extends World
     }
     
     public void Win() {
-        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to play again?", "Winner!", JOptionPane.YES_NO_OPTION);
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to Minigame 2?", "Winner!", JOptionPane.YES_NO_OPTION);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame1World());
+            Greenfoot.setWorld(new MiniGame2World());
         } else {
             Greenfoot.setWorld(new MainMenuWorld());
         }
