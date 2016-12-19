@@ -108,8 +108,6 @@ public class MG2Hook extends Actor
                     currentRow = 3;
                 }
                 
-                System.out.println(currentRow);
-                
                 if (world.getShip().spaceAtRow(currentRow)) {
                     world.getShip().addContainer(currentRow, this.draggingContainer);
                     this.draggingContainer = null;
