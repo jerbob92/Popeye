@@ -17,7 +17,7 @@ public class StartButton extends Button
     {
        if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new MiniGame3World());
+            Greenfoot.setWorld(new MiniGame2World());
         }
     }    
 }
