@@ -15,7 +15,7 @@ public class MG3Firesmall extends MG3Fire
     {
         
         // @todo: random size
-        this.fireSize = 1;
+        this.fireSize = 3;
         this.losttimehealth = System.currentTimeMillis();
 
     }

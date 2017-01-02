@@ -81,6 +81,11 @@ public class MG3Fireboat extends Actor
         {
             move(-5);
         }
+        Actor MG3yacht = getOneIntersectingObject(MG3yacht.class);
+        if(MG3yacht!=null)
+        {
+            move(-5);
+        }
     }
     public void checkObstacle2()
     {
@@ -94,7 +99,13 @@ public class MG3Fireboat extends Actor
         {
             move(5);
         }
+        Actor MG3yacht = getOneIntersectingObject(MG3yacht.class);
+        if(MG3yacht!=null)
+        {
+            move(5);
+        }
     }
 }
+
 
 
