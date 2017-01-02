@@ -93,7 +93,7 @@ public class MG2Hook extends Actor
         }
     }
     
-    public void checkContainerTouchingDummy() {;
+    public void checkContainerTouchingDummy() {
         if (this.draggingContainer != null) {
             MG2Container dummyContainer = this.draggingContainer.touchingDummyContainer();
             if (dummyContainer != null) {
