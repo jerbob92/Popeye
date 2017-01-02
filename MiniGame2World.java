@@ -58,9 +58,9 @@ public class MiniGame2World extends World
     }
     
     public void win() {
-        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to play again?", "Winner!", JOptionPane.YES_NO_OPTION);
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to minigame 3?", "Winner!", JOptionPane.YES_NO_OPTION);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame2World());
+            Greenfoot.setWorld(new MiniGame3World());
         } else {
             Greenfoot.setWorld(new MainMenuWorld());
         }
