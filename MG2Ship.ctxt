@@ -14,4 +14,6 @@ comment5.params=i
 comment5.target=boolean\ spaceAtRow(int)
 comment6.params=i\ container
 comment6.target=void\ addContainer(int,\ MG2Container)
-numComments=7
+comment7.params=container
+comment7.target=boolean\ isLastContainerInColumn(MG2Container)
+numComments=8

@@ -100,4 +100,28 @@ public class MG2Ship extends Actor
         this.containers[i][containersInRow] = container;
         container.setLocation(this.start_x + (i*100), this.start_y - (containersInRow*66));
     }
+    
+    public boolean isLastContainerInColumn(MG2Container container) {
+        for(int i=0; i < this.containers.length; i++){
+           boolean foundContainer = false;
+           int myIndex = 0;
+           int lastIndex = 0;
+           for(int i2=0; i2 < this.containers[i].length; i2++){
+              if (this.containers[i][i2] == container) {
+                foundContainer = true;
+                myIndex = i2;
+              }
+              
+              if (this.containers[i][i2] != null) {
+                  lastIndex = i2;
+              }
+           }
+           
+           if(foundContainer && myIndex == lastIndex) {
+             return true;    
+           }
+        }
+        
+        return false;
+    }
 }

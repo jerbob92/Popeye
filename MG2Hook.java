@@ -29,8 +29,14 @@ public class MG2Hook extends Actor
         // Make sure object is between boundries.
         if(Greenfoot.isKeyDown("left") && getX() > 20) {
             move(-4);
+       
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
               move(4);  
+            } else {
+                MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
+                if (container != null && this.draggingContainer == null) {
+                    move(4);
+                }
             }
         }
         
@@ -38,14 +44,24 @@ public class MG2Hook extends Actor
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
               move(-4);  
+            } else {
+                MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
+                if (container != null && this.draggingContainer == null) {
+                    move(-4);
+                }
             }
         }   
         
-        if(Greenfoot.isKeyDown("down") && getY() < 290) {
+        if(Greenfoot.isKeyDown("down") && ((this.draggingContainer == null && getY() < 250) || (this.draggingContainer != null && getY() < 230))) {
             setRotation(90);
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
               move(-4);  
+            } else {
+                MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
+                if (container != null && this.draggingContainer == null) {
+                    move(-4);
+                }
             }
         }  
         
@@ -62,10 +78,12 @@ public class MG2Hook extends Actor
         MG2Container container;
         container = (MG2Container)getOneIntersectingObject(MG2Container.class);
         if (container != null && this.draggingContainer == null && !container.isDummy()) {
-            this.draggingContainer = container;
             MiniGame2World world = (MiniGame2World) getWorld();
-            world.getShip().removeContainer(this.draggingContainer);
-            this.setLocation(this.draggingContainer.getX(), this.getY());
+            if (world.getShip().isLastContainerInColumn(container)) {
+                this.draggingContainer = container;
+                world.getShip().removeContainer(this.draggingContainer);
+                this.setLocation(this.draggingContainer.getX(), this.getY());   
+            }
         }
     }
     
