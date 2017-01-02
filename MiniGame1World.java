@@ -10,6 +10,7 @@ import javax.swing.*;
 public class MiniGame1World extends World
 {
 
+    GameState globalGameState;
     MG1EnemyList enemyList;
     public MG1Lives lives;
     
@@ -22,6 +23,18 @@ public class MiniGame1World extends World
         // Create a new world with 1280*720 cells with a cell size of 1x1 pixels.
         super(1280, 720, 1); 
         prepare();
+        
+        if(this.globalGameState == null) {
+            this.globalGameState = new GameState();
+        }
+    }
+    
+    public void setGameState(GameState gamestate) {
+        this.globalGameState = gamestate;
+    }
+    
+    public GameState getGameState() {
+        return this.globalGameState;
     }
     
     /**
@@ -91,18 +104,27 @@ public class MiniGame1World extends World
     public void gameOver() {
         int n = JOptionPane.showConfirmDialog(null, "Game over! Do you want to try again?", "Game Over!", JOptionPane.YES_NO_OPTION);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame1World());
+            MiniGame1World newWorld = new MiniGame1World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         } else {
-            Greenfoot.setWorld(new MainMenuWorld());
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         }
     }
     
     public void Win() {
         int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to Minigame 2?", "Winner!", JOptionPane.YES_NO_OPTION);
+        this.getGameState().setFinished(1, 0);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame2World());
+            MiniGame2World newWorld = new MiniGame2World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         } else {
-            Greenfoot.setWorld(new MainMenuWorld());
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         }
     }
     
@@ -111,7 +133,9 @@ public class MiniGame1World extends World
         if(Greenfoot.isKeyDown("escape")) {
             int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
             if (n == 0) {
-                Greenfoot.setWorld(new MainMenuWorld());
+                MainMenuWorld newWorld = new MainMenuWorld();
+                newWorld.setGameState(this.getGameState());
+                Greenfoot.setWorld(newWorld);
             }
         }     
     }

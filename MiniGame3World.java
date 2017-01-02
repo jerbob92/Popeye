@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import javax.swing.*;
 
 /**
  * Write a description of class MiniGame3World here.
@@ -8,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MiniGame3World extends World
 {
+    GameState globalGameState;
 
     /**
      * Constructor for objects of class MiniGame3World.
@@ -19,6 +21,15 @@ public class MiniGame3World extends World
         super(1280, 720, 1); 
         prepare();
     }
+    
+    public void setGameState(GameState gamestate) {
+        this.globalGameState = gamestate;
+    }
+    
+    public GameState getGameState() {
+        return this.globalGameState;
+    }
+    
     private void prepare()
     {
         //add fireboat
@@ -86,6 +97,23 @@ public class MiniGame3World extends World
         
        
         
+    }
+    
+    public void act()
+    {
+        buttonPressed();
+    }
+    
+    public void buttonPressed()
+    {
+        if(Greenfoot.isKeyDown("escape")) {
+            int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                MainMenuWorld newWorld = new MainMenuWorld();
+                newWorld.setGameState(this.getGameState());
+                Greenfoot.setWorld(newWorld);
+            }
+        }     
     }
 }
 

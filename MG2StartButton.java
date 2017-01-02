@@ -1,24 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartButton here.
+ * Write a description of class MG2StartButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StartButton extends Button
+public class MG2StartButton extends StartButton
 {
-    
     /**
-     * Act - do whatever the StartButton wants to do. This method is called whenever
+     * Act - do whatever the MG2StartButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-       if (Greenfoot.mouseClicked(this))
+        if (Greenfoot.mouseClicked(this))
         {
             MainMenuWorld thisWorld = (MainMenuWorld) getWorld();
-            MiniGame1World nextWorld = new MiniGame1World();
+            MiniGame2World nextWorld = new MiniGame2World();
             nextWorld.setGameState(thisWorld.getGameState());
             Greenfoot.setWorld(nextWorld);
         }

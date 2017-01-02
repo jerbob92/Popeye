@@ -10,6 +10,7 @@ import javax.swing.*;
 public class MiniGame2World extends World
 {
     
+    GameState globalGameState;
     MG2Ship ship;
 
     /**
@@ -21,6 +22,14 @@ public class MiniGame2World extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1280, 720, 1, false); 
         prepare();
+    }
+    
+    public void setGameState(GameState gamestate) {
+        this.globalGameState = gamestate;
+    }
+    
+    public GameState getGameState() {
+        return this.globalGameState;
     }
     
     private void prepare() {   
@@ -48,7 +57,9 @@ public class MiniGame2World extends World
         if(Greenfoot.isKeyDown("escape")) {
             int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
             if (n == 0) {
-                Greenfoot.setWorld(new MainMenuWorld());
+                MainMenuWorld newWorld = new MainMenuWorld();
+                newWorld.setGameState(this.getGameState());
+                Greenfoot.setWorld(newWorld);
             }
         }     
     }
@@ -59,10 +70,15 @@ public class MiniGame2World extends World
     
     public void win() {
         int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to minigame 3?", "Winner!", JOptionPane.YES_NO_OPTION);
+        this.getGameState().setFinished(2, 0);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame3World());
+            MiniGame3World newWorld = new MiniGame3World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         } else {
-            Greenfoot.setWorld(new MainMenuWorld());
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         }
     }
 }
