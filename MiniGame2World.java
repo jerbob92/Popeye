@@ -10,6 +10,7 @@ import javax.swing.*;
 public class MiniGame2World extends World
 {
     
+    GameState globalGameState;
     MG2Ship ship;
 
     /**
@@ -23,6 +24,14 @@ public class MiniGame2World extends World
         prepare();
     }
     
+    public void setGameState(GameState gamestate) {
+        this.globalGameState = gamestate;
+    }
+    
+    public GameState getGameState() {
+        return this.globalGameState;
+    }
+    
     private void prepare() {   
         
         MG2Quay quay = new MG2Quay();
@@ -31,7 +40,7 @@ public class MiniGame2World extends World
         MG2Train train = new MG2Train();
         addObject(train,1100,620);
         
-        this.ship = new MG2Ship(this, train);
+        this.ship = new MG2Ship(this);
         addObject(ship,400,615);
         
         MG2Hook hook = new MG2Hook();
@@ -48,7 +57,9 @@ public class MiniGame2World extends World
         if(Greenfoot.isKeyDown("escape")) {
             int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
             if (n == 0) {
-                Greenfoot.setWorld(new MainMenuWorld());
+                MainMenuWorld newWorld = new MainMenuWorld();
+                newWorld.setGameState(this.getGameState());
+                Greenfoot.setWorld(newWorld);
             }
         }     
     }
@@ -58,11 +69,16 @@ public class MiniGame2World extends World
     }
     
     public void win() {
-        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to play again?", "Winner!", JOptionPane.YES_NO_OPTION);
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to minigame 3?", "Winner!", JOptionPane.YES_NO_OPTION);
+        this.getGameState().setFinished(2, 0);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame2World());
+            MiniGame3World newWorld = new MiniGame3World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         } else {
-            Greenfoot.setWorld(new MainMenuWorld());
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         }
     }
 }

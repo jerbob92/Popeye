@@ -12,7 +12,8 @@ public class MG1Life extends Actor
      * Act - do whatever the Life wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    boolean alive = true;
+    private boolean alive = true;
+    
     public void act() 
     {
         // Add your action code here.
@@ -27,4 +28,12 @@ public class MG1Life extends Actor
             this.setImage(imgDead);   
         }
     }    
+    
+    public void setStatus(boolean newStatus) {
+        this.alive = newStatus;
+    }
+    
+    public boolean getStatus() {
+        return this.alive;
+    }
 }

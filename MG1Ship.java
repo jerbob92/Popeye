@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.Color;
 
 /**
  * Write a description of class Ship here.
@@ -10,9 +9,9 @@ import java.awt.Color;
 public class MG1Ship extends Actor
 {
     
-    public int start_x = 640;
-    public int start_y = 475;
-    boolean movingBack = false;
+    private int startX = 640;
+    private int startY = 475;
+    private boolean movingBack = false;
     
     /**
      * Act - do whatever the Ship wants to do. This method is called whenever
@@ -26,6 +25,14 @@ public class MG1Ship extends Actor
         privateBoatCheck();
         tow();
         
+    }
+    
+    public int getStartX() {
+        return this.startX;
+    }
+    
+    public int getStartY() {
+        return this.startY;
     }
 
     public void turn()
@@ -56,10 +63,10 @@ public class MG1Ship extends Actor
         }
         
         if (this.movingBack) {
-            turnTowards(this.start_x,this.start_y);
+            turnTowards(this.startX, this.startY);
             move(4);
-            if(getY() >= this.start_y) {
-                setLocation(this.start_x, this.start_y);
+            if(getY() >= this.startY) {
+                setLocation(this.startX, this.startY);
                 turn(180);
                 this.movingBack = false;
             }
@@ -69,7 +76,7 @@ public class MG1Ship extends Actor
     public void turnCheck()
     {
         /*checkt of de sleepboot op het beginpunt staat. */
-        if(getX() == this.start_x && getY() == this.start_y) {
+        if(getX() == this.startX && getY() == this.startY) {
             this.movingBack = false;
             turn();
         }       
@@ -79,7 +86,7 @@ public class MG1Ship extends Actor
     {
          /*Checkt of het schip verplaatst is. Zo ja: beweegt hem terug naar de
            startpositie. */
-       if((((getY() != this.start_y || getX() != this.start_x) && !Greenfoot.isKeyDown("up")) || isAtEdge())) {
+       if(((getY() != this.startY || getX() != this.startX) && !Greenfoot.isKeyDown("up")) || isAtEdge()) {
             this.movingBack = true;
        }
     }
@@ -95,7 +102,7 @@ public class MG1Ship extends Actor
           enemy.toHarbor();
           
           MG1Ship ship = new MG1Ship();
-          world.addObject(ship, this.start_x, this.start_y);
+          world.addObject(ship, this.startX, this.startY);
           ship.setRotation(225);
           world.removeObject(this);
         }   
@@ -103,16 +110,12 @@ public class MG1Ship extends Actor
     
     public void privateBoatCheck()//Botsing met een private ship?
     {
-      MG1PrivateBoat private_boat;
-      private_boat = (MG1PrivateBoat)getOneObjectAtOffset(0,0, MG1PrivateBoat.class);
-      if(private_boat != null){
-          if (!private_boat.isExploded()) {
-            this.movingBack = true;
-            MiniGame1World world;
-            world = (MiniGame1World) getWorld();
-            world.lives.removeLife();
-            private_boat.explode();
-          }
+      MG1PrivateBoat privateBoat = (MG1PrivateBoat) getOneObjectAtOffset(0,0, MG1PrivateBoat.class);
+      if(privateBoat != null && !privateBoat.isExploded()){
+          this.movingBack = true;
+          MiniGame1World world = (MiniGame1World) getWorld();
+          world.getLives().removeLife();
+          privateBoat.explode();
       }   
     }
 }

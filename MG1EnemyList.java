@@ -53,29 +53,29 @@ public class MG1EnemyList extends Actor
         Actor enemy;
         if (this.i == 0) {
             enemy = new MG1Enemy(this);
-            world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+100));
+            world.addObject(enemy, 5, Greenfoot.getRandomNumber(100)+100);
             this.i++;
         }
         
         if(Greenfoot.getRandomNumber(5000) < 10){
             enemy = new MG1Enemy(this);
             if(alt) {
-                world.addObject(enemy,5,(Greenfoot.getRandomNumber(100)+200));
+                world.addObject(enemy, 5, Greenfoot.getRandomNumber(100)+200);
                 alt = false;
             } else {
-                world.addObject(enemy,5,Greenfoot.getRandomNumber(100)+100);
+                world.addObject(enemy, 5, Greenfoot.getRandomNumber(100)+100);
                 alt = true;
             }
             this.i++;
         }
         
         if(Greenfoot.getRandomNumber(2000) < 10){
-            MG1PrivateBoat private_boat = new MG1PrivateBoat();
+            MG1PrivateBoat privateBoat = new MG1PrivateBoat();
             if(privateBoatAlt) {
-                world.addObject(private_boat,5,(Greenfoot.getRandomNumber(100)+200));
+                world.addObject(privateBoat, 5, Greenfoot.getRandomNumber(100)+200);
                 privateBoatAlt = false;
             } else {
-                world.addObject(private_boat,5,Greenfoot.getRandomNumber(100)+100);
+                world.addObject(privateBoat, 5, Greenfoot.getRandomNumber(100)+100);
                 privateBoatAlt = true;
             }
         }

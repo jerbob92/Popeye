@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MG3Fireboat extends Actor
 {
-    public int start_x = 300;
-    public int start_y = 300;
+    private int startX = 300;
+    private int startY = 300;
     
     /**
      * Act - do whatever the MG3Fireboat wants to do. This method is called whenever
@@ -49,6 +49,15 @@ public class MG3Fireboat extends Actor
 
         }
     } 
+    
+    public int getStartX() {
+        return this.startX;
+    }
+    
+    public int getStartY() {
+        return this.startY;
+    }
+    
     /**
      * fire the cannon space.
      */
@@ -71,26 +80,26 @@ public class MG3Fireboat extends Actor
     }    
        public void checkObstacle()
     {
-        Actor MG3Quay = getOneIntersectingObject(MG3Quay.class);
-        if(MG3Quay!=null)
+        Actor mg3Quay = getOneIntersectingObject(MG3Quay.class);
+        if(mg3Quay != null)
         {
             move(-5);
         }
-        Actor MG3Containership = getOneIntersectingObject(MG3Containership.class);
-        if(MG3Containership!=null)
+        Actor mg3Containership = getOneIntersectingObject(MG3Containership.class);
+        if(mg3Containership != null)
         {
             move(-5);
         }
     }
     public void checkObstacle2()
     {
-        Actor MG3Quay = getOneIntersectingObject(MG3Quay.class);
-        if(MG3Quay!=null)
+        Actor mg3Quay = getOneIntersectingObject(MG3Quay.class);
+        if(mg3Quay != null)
         {
             move(5);
         }
-        Actor MG3Containership = getOneIntersectingObject(MG3Containership.class);
-        if(MG3Containership!=null)
+        Actor mg3Containership = getOneIntersectingObject(MG3Containership.class);
+        if(mg3Containership != null)
         {
             move(5);
         }
