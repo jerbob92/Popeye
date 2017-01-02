@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+ 
+
 /**
  * Write a description of class MainMenuWorld here.
  * 
@@ -10,9 +12,9 @@ public class MainMenuWorld extends World
 {
     
     GameState globalGameState;
-    StartButton start_button_1;
-    MG2StartButton start_button_2;
-    MG3StartButton start_button_3;
+    StartButton startButton1;
+    MG2StartButton startButton2;
+    MG3StartButton startButton3;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -31,16 +33,16 @@ public class MainMenuWorld extends World
     }
     
     private void init() {
-        ExitButton exit_button = new ExitButton();
+        ExitButton exitButton = new ExitButton();
         
-        this.start_button_1 = new StartButton();
-        this.start_button_2 = new MG2StartButton();
-        this.start_button_3 = new MG3StartButton();
+        this.startButton1 = new StartButton();
+        this.startButton2 = new MG2StartButton();
+        this.startButton3 = new MG3StartButton();
                 
-        addObject(this.start_button_1, 400, 300);
-        addObject(this.start_button_2, 400, 450);
-        addObject(this.start_button_3, 400, 600);
-        addObject(exit_button, 800, 300);
+        addObject(this.startButton1, 400, 300);
+        addObject(this.startButton2, 400, 450);
+        addObject(this.startButton3, 400, 600);
+        addObject(exitButton, 800, 300);
     }
     
     public void setGameState(GameState gamestate) {
@@ -53,15 +55,15 @@ public class MainMenuWorld extends World
     
     public void act() {
         if (!this.globalGameState.getFinished(1)) {
-            this.start_button_2.setLocation(400, -450);
+            this.startButton2.setLocation(400, -450);
         } else {
-            this.start_button_2.setLocation(400, 450);
+            this.startButton2.setLocation(400, 450);
         }
         
         if (!this.globalGameState.getFinished(2)) {
-            this.start_button_3.setLocation(400, -600);
+            this.startButton3.setLocation(400, -600);
         } else {
-            this.start_button_3.setLocation(400, 600);
+            this.startButton3.setLocation(400, 600);
         }
     }
 }

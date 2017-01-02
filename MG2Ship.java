@@ -9,13 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MG2Ship extends Actor
 {
     
-    MG2Container[][] containers;
-    MG2Train train;
-    int start_x = 310;
-    int start_y = 625;
+    private MG2Container[][] containers;
+    private int startX = 310;
+    private int startY = 625;
     
-    public MG2Ship(World world, MG2Train train) {
-        this.train = train;
+    public MG2Ship(World world) {
         this.containers = new MG2Container[4][5];
         
         for(int i= 0; i < 4; i++){
@@ -27,7 +25,7 @@ public class MG2Ship extends Actor
                   MG2Container container = new MG2Container(false, null, (MiniGame2World)world);
                   this.containers[i][i2] = container;
                   
-                  world.addObject(container,  this.start_x + (i*100), this.start_y - (i2*66));   
+                  world.addObject(container,  this.startX + (i*100), this.startY - (i2*66));   
               }
            }   
         }
@@ -41,6 +39,14 @@ public class MG2Ship extends Actor
     {
         // Add your action code here.
     }    
+    
+    public int getStartX() {
+        return this.startX;
+    }
+    
+    public int getStartY() {
+        return this.startY;
+    }
     
     public MG2Container getRandomContainer() {
         MG2Container[] allContainers = new MG2Container[100];
@@ -98,7 +104,7 @@ public class MG2Ship extends Actor
         }  
        
         this.containers[i][containersInRow] = container;
-        container.setLocation(this.start_x + (i*100), this.start_y - (containersInRow*66));
+        container.setLocation(this.startX + (i*100), this.startY - (containersInRow*66));
     }
     
     public boolean isLastContainerInColumn(MG2Container container) {

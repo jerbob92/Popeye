@@ -10,9 +10,8 @@ import javax.swing.*;
 public class MiniGame1World extends World
 {
 
-    GameState globalGameState;
-    MG1EnemyList enemyList;
-    public MG1Lives lives;
+    private GameState globalGameState;
+    private MG1Lives lives;
     
     /**
      * Constructor for objects of class MiniGame1World.
@@ -89,10 +88,10 @@ public class MiniGame1World extends World
         MG1Crane[] cranes = new MG1Crane[] { crane1, crane2, crane3, crane4, crane5, crane6 };
        
         MG1Ship ship = new MG1Ship();
-        this.enemyList = new MG1EnemyList();
-        this.enemyList.setCranes(cranes);
+        MG1EnemyList enemyList = new MG1EnemyList();
+        enemyList.setCranes(cranes);
         addObject(enemyList,0,0);
-        addObject(ship,ship.start_x,ship.start_y);
+        addObject(ship, ship.getStartX(), ship.getStartY());
         ship.setRotation(225);
     }
     
@@ -138,5 +137,9 @@ public class MiniGame1World extends World
                 Greenfoot.setWorld(newWorld);
             }
         }     
+    }
+    
+    public MG1Lives getLives() {
+        return this.lives;
     }
 }

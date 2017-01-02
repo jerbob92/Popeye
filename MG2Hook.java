@@ -25,8 +25,17 @@ public class MG2Hook extends Actor
     }    
     
     public void move()
-    {
-        // Make sure object is between boundries.
+    {   
+        moveLeft();
+        moveRight();
+        moveDown();  
+        moveUp();
+           
+        // Make sure object is always properly rotated.
+        setRotation(0);
+    }
+    
+    public void moveLeft() {
         if(Greenfoot.isKeyDown("left") && getX() > 20) {
             move(-4);
        
@@ -39,7 +48,9 @@ public class MG2Hook extends Actor
                 }
             }
         }
-        
+    }
+    
+    public void moveRight() {
         if(Greenfoot.isKeyDown("right") && getX() < 1260) {
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
@@ -51,8 +62,21 @@ public class MG2Hook extends Actor
                 }
             }
         }   
+    }
+    
+    public void moveUp() {
+        if(Greenfoot.isKeyDown("up") && getY() > -250) {
+            setRotation(270);
+            move(4);
+        }
+    }
+    
+    public void moveDown() {
+        boolean isInNormalRange = this.draggingContainer == null && getY() < 250;
+        boolean isInDraggingRange = this.draggingContainer != null && getY() < 230;
+        boolean isInRange = isInNormalRange || isInDraggingRange;
         
-        if(Greenfoot.isKeyDown("down") && ((this.draggingContainer == null && getY() < 250) || (this.draggingContainer != null && getY() < 230))) {
+        if(Greenfoot.isKeyDown("down") && isInRange) {
             setRotation(90);
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
@@ -64,14 +88,6 @@ public class MG2Hook extends Actor
                 }
             }
         }  
-        
-        if(Greenfoot.isKeyDown("up") && getY() > -250) {
-            setRotation(270);
-            move(4);
-        }
-           
-        // Make sure object is always properly rotated.
-        setRotation(0);
     }
     
     public void checkContainer() {
@@ -110,27 +126,31 @@ public class MG2Hook extends Actor
         if(this.draggingContainer != null && Greenfoot.isKeyDown("space")) {
             MiniGame2World world = (MiniGame2World) getWorld();            
             if (getX() >= 226 && getX() <= 694) {
-                int currentRow = 0;
-                if (getX() >= 226 && getX() <= 343) {
-                    currentRow = 0;
-                }
-                else if (getX() > 343 && getX() <= 460) {
-                    currentRow = 1;
-                }
-                
-                else if (getX() > 460 && getX() <= 577) {
-                    currentRow = 2;
-                }
-                
-                else if (getX() > 577 && getX() <= 694) {
-                    currentRow = 3;
-                }
-                
+                int currentRow = getCurrentDropRow();
                 if (world.getShip().spaceAtRow(currentRow)) {
                     world.getShip().addContainer(currentRow, this.draggingContainer);
                     this.draggingContainer = null;
                 }
             }
         }
+    }
+    
+    public int getCurrentDropRow() {
+        int currentRow = 0;
+        if (getX() >= 226 && getX() <= 343) {
+            currentRow = 0;
+        }
+        else if (getX() > 343 && getX() <= 460) {
+            currentRow = 1;
+        }
+        
+        else if (getX() > 460 && getX() <= 577) {
+            currentRow = 2;
+        }
+        
+        else if (getX() > 577 && getX() <= 694) {
+            currentRow = 3;
+        }
+        return currentRow;
     }
 }

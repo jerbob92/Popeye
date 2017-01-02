@@ -34,7 +34,7 @@ public class MiniGame3World extends World
     {
         //add fireboat
         MG3Fireboat mg3fireboat = new MG3Fireboat();
-        addObject(mg3fireboat, mg3fireboat.start_x, mg3fireboat.start_y);
+        addObject(mg3fireboat, mg3fireboat.getStartX(), mg3fireboat.getStartY());
         
         //add Quay buttom
         MG3Quaybuttom mg3quaybuttom = new MG3Quaybuttom();

@@ -40,7 +40,7 @@ public class MiniGame2World extends World
         MG2Train train = new MG2Train();
         addObject(train,1100,620);
         
-        this.ship = new MG2Ship(this, train);
+        this.ship = new MG2Ship(this);
         addObject(ship,400,615);
         
         MG2Hook hook = new MG2Hook();

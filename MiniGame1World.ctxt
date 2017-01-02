@@ -19,4 +19,6 @@ comment7.params=
 comment7.target=void\ Win()
 comment8.params=
 comment8.target=void\ buttonPressed()
-numComments=9
+comment9.params=
+comment9.target=MG1Lives\ getLives()
+numComments=10

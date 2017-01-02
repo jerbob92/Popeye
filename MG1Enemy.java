@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MG1Enemy extends MG1EnemyList
 {
-    int speed;
-    boolean atHarbor;
-    long harborArriveTime;
-    MG1EnemyList enemyList;
-    MG1Crane target;
+    private int speed;
+    private boolean atHarbor;
+    private long harborArriveTime;
+    private MG1EnemyList enemyList;
+    private MG1Crane target;
     
     public MG1Enemy(MG1EnemyList enemyList)
     {
@@ -67,10 +67,7 @@ public class MG1Enemy extends MG1EnemyList
     
     public void moveToHarbor() {
         if (this.target != null) {
-            int target_x = this.target.getX();
-            int target_y = this.target.getY()-50;
-            
-            turnTowards(target_x, target_y);
+            turnTowards(this.target.getX(), this.target.getY()-50);
         }
     }
     
@@ -103,7 +100,7 @@ public class MG1Enemy extends MG1EnemyList
           i=0;  
           MiniGame1World world;
           world = (MiniGame1World) getWorld();
-          world.lives.removeLife();
+          world.getLives().removeLife();
           world.removeObject(this);
 
         }
