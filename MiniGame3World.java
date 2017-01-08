@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.*;
 /**
  * Write a description of class MiniGame3World here.
  * 
@@ -8,9 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MiniGame3World extends World
 {
-    MG3Fireobjects[] myObjectList = new MG3Fireobjects[18];
-    
-        
+    MG3Fireobjects[] myObjectList = new MG3Fireobjects[19];
+           
     
     /**
      * Constructor for objects of class MiniGame3World.
@@ -24,8 +23,11 @@ public class MiniGame3World extends World
     }
     private void prepare()
     {
-       
+       //add Timer
+       MG3Timer mg3timer = new MG3Timer();
+       addObject(mg3timer,1230,180);
         
+       
         //add fireboat
         MG3Fireboat mg3fireboat = new MG3Fireboat();
         addObject(mg3fireboat, mg3fireboat.start_x, mg3fireboat.start_y);
@@ -113,14 +115,20 @@ public class MiniGame3World extends World
         MG3yacht mg3yacht = new MG3yacht();
         addObject(mg3yacht, 1215,515);
         myObjectList[18]= mg3yacht;
-                      
+        
+              
+        
+                             
         for(int i=0; i<mg3firesmall.length;i++)
         {
             mg3firesmall[i] = new MG3Firesmall();
-            int fireX = Greenfoot.getRandomNumber(getWidth());
-            int fireY = Greenfoot.getRandomNumber(getHeight());
+            int index2 = Greenfoot.getRandomNumber(19);
+            int fireX = myObjectList[index2].getX();
+            int fireY = myObjectList[index2].getY();
             addObject(mg3firesmall[i], fireX, fireY);
             mg3firesmall[i].addHealthbar();
+            mg3firesmall[i].addHitbar();  
+                        
         }
         
         //add Firesmall 2
@@ -130,10 +138,12 @@ public class MiniGame3World extends World
         for(int i=0; i<mg3firesmall2.length;i++)
         {
             mg3firesmall2[i] = new MG3Firesmall2();
-            int fireX = Greenfoot.getRandomNumber(getWidth());
-            int fireY = Greenfoot.getRandomNumber(getHeight());
+            int index2 = Greenfoot.getRandomNumber(19);
+            int fireX = myObjectList[index2].getX();
+            int fireY = myObjectList[index2].getY();
             addObject(mg3firesmall2[i], fireX, fireY);
             mg3firesmall2[i].addHealthbar();
+            mg3firesmall2[i].addHitbar();  
         }
         
         //add Firebig 1
@@ -143,29 +153,47 @@ public class MiniGame3World extends World
         for(int i=0; i<mg3firebig1.length;i++)
         {
             mg3firebig1[i] = new MG3Firebig1();
-            int fireX = Greenfoot.getRandomNumber(getWidth());
-            int fireY = Greenfoot.getRandomNumber(getHeight());
+            int index = Greenfoot.getRandomNumber(19);
+            int fireX = myObjectList[index].getX();
+            int fireY = myObjectList[index].getY();
             addObject(mg3firebig1[i], fireX, fireY);
             mg3firebig1[i].addHealthbar();
+            mg3firebig1[i].addHitbar();  
         }
         
         //add Firebig 2
         MG3Firebig2[] mg3firebig2 = new MG3Firebig2[1];
         
                       
-        for(int i=0; i<mg3firebig1.length;i++)
+        for(int i=0; i<mg3firebig2.length;i++)
         {
             mg3firebig2[i] = new MG3Firebig2();
-            int fireX = Greenfoot.getRandomNumber(getWidth());
-            int fireY = Greenfoot.getRandomNumber(getHeight());
+            int index3 = Greenfoot.getRandomNumber(19);
+            int fireX = myObjectList[index3].getX();
+            int fireY = myObjectList[index3].getY();
             addObject(mg3firebig2[i], fireX, fireY);
             mg3firebig2[i].addHealthbar();
+            mg3firebig2[i].addHitbar();  
+            
         }
-        this.setPaintOrder(MG3Waterbeam2.class, MG3Waterbeam.class, MG3Fire.class, MG3Healthbar.class, MG3Crane.class, MG3Building.class, MG3Quay.class, MG3Schips.class);
+        this.setPaintOrder(MG3Waterbeam2.class, MG3Waterbeam.class, MG3Timer.class, MG3Fire.class, MG3Healthbar.class, MG3Hitbar.class, MG3Crane.class, MG3Building.class, MG3Quay.class, MG3Schips.class);
         
         
        
         
     }
+    
+   public void Win() {
+        int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to Minigame 4?", "Winner!", JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
+            Greenfoot.setWorld(new MiniGame3World());
+        } else {
+            Greenfoot.setWorld(new MainMenuWorld());
+        }
+    }
+    
 }
+
+
+
 
