@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MG3Lives
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MG3Lives\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ MG3Lives\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=MG3Lives()
 comment2.params=
@@ -9,4 +9,8 @@ comment3.params=
 comment3.target=void\ setupLives()
 comment4.params=
 comment4.target=void\ removeLife()
-numComments=5
+comment5.params=i
+comment5.target=MG3Life\ getLive(int)
+comment6.params=
+comment6.target=MG3Life[]\ getLives()
+numComments=7

@@ -90,8 +90,8 @@ public class MG3Fireboat extends Actor
         {
             move(-5);
         }
-        Actor MG3yacht = getOneIntersectingObject(MG3yacht.class);
-        if(MG3yacht!=null)
+        Actor mg3Yacht = getOneIntersectingObject(MG3yacht.class);
+        if(mg3Yacht!=null)
         {
             move(-5);
         }
@@ -108,8 +108,8 @@ public class MG3Fireboat extends Actor
         {
             move(5);
         }
-        Actor MG3yacht = getOneIntersectingObject(MG3yacht.class);
-        if(MG3yacht!=null)
+        Actor mg3Yacht = getOneIntersectingObject(MG3yacht.class);
+        if(mg3Yacht!=null)
         {
             move(5);
         }

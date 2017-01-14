@@ -10,7 +10,7 @@ import javax.swing.*;
 public class MiniGame3World extends World
 {
     MG3Fireobjects[] myObjectList = new MG3Fireobjects[19];
-    public MG3Lives lives;       
+    private MG3Lives lives;       
     GameState globalGameState;
 
     /**
@@ -124,9 +124,6 @@ public class MiniGame3World extends World
         MG3Containership mg3containership2 = new MG3Containership();
         addObject(mg3containership2,450,550);
         myObjectList[17]= mg3containership2;
-        
-        //add Fire
-        MG3Firesmall[] mg3firesmall = new MG3Firesmall[2];
         
         //add Yachtquay
         MG3Yachtquay mg3yachtquay = new MG3Yachtquay();
@@ -253,6 +250,10 @@ public class MiniGame3World extends World
                 Greenfoot.setWorld(newWorld);
             }
         }     
+    }
+    
+    public MG3Lives getLives() {
+        return this.lives;
     }
 }
 
