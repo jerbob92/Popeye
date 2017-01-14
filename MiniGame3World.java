@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import javax.swing.*;
+
 /**
  * Write a description of class MiniGame3World here.
  * 
@@ -10,7 +11,8 @@ public class MiniGame3World extends World
 {
     MG3Fireobjects[] myObjectList = new MG3Fireobjects[19];
     public MG3Lives lives;       
-    
+    GameState globalGameState;
+
     /**
      * Constructor for objects of class MiniGame3World.
      * 
@@ -28,6 +30,15 @@ public class MiniGame3World extends World
         Firebig2();
         
     }
+    
+    public void setGameState(GameState gamestate) {
+        this.globalGameState = gamestate;
+    }
+    
+    public GameState getGameState() {
+        return this.globalGameState;
+    }
+    
     private void prepare()
     {
        //add Timer
@@ -40,7 +51,7 @@ public class MiniGame3World extends World
        
         //add fireboat
         MG3Fireboat mg3fireboat = new MG3Fireboat();
-        addObject(mg3fireboat, mg3fireboat.start_x, mg3fireboat.start_y);
+        addObject(mg3fireboat, mg3fireboat.getStartX(), mg3fireboat.getStartY());
         
         //add Quay buttom
         MG3Quaybuttom mg3quaybuttom = new MG3Quaybuttom();
@@ -225,6 +236,23 @@ public class MiniGame3World extends World
             mg3firebig2[i].addHitbar();  
         }
         
+    }
+    
+    public void act()
+    {
+        buttonPressed();
+    }
+    
+    public void buttonPressed()
+    {
+        if(Greenfoot.isKeyDown("escape")) {
+            int n = JOptionPane.showConfirmDialog(null, "Do you really want to exit to the main menu?", "Exit", JOptionPane.YES_NO_OPTION);
+            if (n == 0) {
+                MainMenuWorld newWorld = new MainMenuWorld();
+                newWorld.setGameState(this.getGameState());
+                Greenfoot.setWorld(newWorld);
+            }
+        }     
     }
 }
 

@@ -12,14 +12,13 @@ public class MG1Lives extends Actor
      * Act - do whatever the Lives wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public MG1Life[] lives = new MG1Life[3];
-    //Life life1 = new Life();
+    private MG1Life[] lives = new MG1Life[3];
     MiniGame1World world;
     public MG1Lives()
     {  
         this.lives[0] = new MG1Life();
-        this.lives[1]= new MG1Life(); 
-        this.lives[2]= new MG1Life();
+        this.lives[1] = new MG1Life(); 
+        this.lives[2] = new MG1Life();
     }
     
     public void act() 
@@ -41,12 +40,13 @@ public class MG1Lives extends Actor
         {
             if (i == 0)
             {
-                lives[i].alive = false;
+                this.lives[i].setStatus(false);
                 world.gameOver();
             }
-            if (this.lives[i].alive)
+            
+            if (this.lives[i].getStatus())
             {
-                lives[i].alive = false;
+                this.lives[i].setStatus(false);
                 break;
             }
            

@@ -11,7 +11,7 @@ public class MG3Healthbar extends Actor
     int health = 10;
     int healthBarWidth = 40;
     int healthBarHeight = 10;
-    int pixelsPerHealthPoint = (int)healthBarWidth/health ;
+    int pixelsPerHealthPoint = healthBarWidth / health;
     
     /**
      * Act - do whatever the Healthbar wants to do. This method is called whenever
@@ -20,7 +20,7 @@ public class MG3Healthbar extends Actor
     public MG3Healthbar(int totalhealth)
     {
         this.health = totalhealth;
-        this.pixelsPerHealthPoint = (int)healthBarWidth/health ;
+        this.pixelsPerHealthPoint = healthBarWidth / health;
         update();
     }
     
