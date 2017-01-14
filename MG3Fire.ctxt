@@ -1,7 +1,21 @@
 #BlueJ class context
 comment0.target=MG3Fire
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MG3Fire\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ MG3Fire\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.text=\n\ Write\ a\ description\ of\ class\ MG3Fire\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=healthloseinterval
+comment1.target=MG3Fire(long)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ MG3Fire\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=void\ gethit()
+comment4.params=
+comment4.target=void\ addHealthbar()
+comment5.params=
+comment5.target=void\ addHitbar()
+comment6.params=
+comment6.target=void\ removefire()
+comment7.params=
+comment7.target=void\ removefiredone()
+comment8.params=world
+comment8.target=void\ recreate(MiniGame3World)
+numComments=9
