@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class MG3Firebig2 here.
  * 
@@ -16,7 +16,7 @@ public class MG3Firebig2 extends MG3Fire
     {
         
         // @todo: random size
-        this.fireSize = 2;
+        this.fireSize = 3;
         this.losttimehealth = System.currentTimeMillis();
 
     }
@@ -26,24 +26,28 @@ public class MG3Firebig2 extends MG3Fire
      */
     public void act() 
     {
-        if (System.currentTimeMillis() - this.losttimehealth > 4000)
+        if (System.currentTimeMillis() - this.losttimehealth > 2000)
         {
             this.healthbar.loseHealth();
             this.losttimehealth = System.currentTimeMillis();
         }
         gethit();
         removefire();
+        removefiredone();
     } 
      public void gethit()
     // groene balk loopt op bij hit!
     {
-        MG3Waterbeam mg3waterbeam;
-        mg3waterbeam = (MG3Waterbeam)getOneObjectAtOffset(0,0, MG3Waterbeam.class);
-        if(mg3waterbeam != null){
-            this.hitbar.getHit();
-            this.hitbar.getHit();
+        List<MG3Waterbeam> mg3waterbeam;
+        mg3waterbeam = (List<MG3Waterbeam>)getObjectsInRange(15, MG3Waterbeam.class);
         
-        }   
+        // iterate via "for loop"
+		for (int i = 0; i < mg3waterbeam.size(); i++) {
+			this.hitbar.getHit();
+            
+		}
+                  
+           
     }
     
     public void addHealthbar() {
@@ -58,14 +62,27 @@ public class MG3Firebig2 extends MG3Fire
     {
                    
        if (!hitbar.hitful() == true){
-           World world;
-           world = getWorld();
+           MiniGame3World world;
+           world = (MiniGame3World)getWorld();
            world.removeObject(this);
            world.removeObject(hitbar);
            world.removeObject(healthbar);
-       
+           world.Firebig2();
         }
        
     }  
+    public void removefiredone()
+    {
+        if (!healthbar.lifedone () == true) {
+           MiniGame3World world;
+           world = (MiniGame3World)getWorld();
+           world.removeObject(this);
+           world.removeObject(hitbar);
+           world.removeObject(healthbar);
+           world.lives.removeLife();
+           world.Firebig2();        
+        }
+    }
 }
+
 

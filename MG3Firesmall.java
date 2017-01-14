@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class MG3Firesmall here.
  * 
@@ -36,17 +36,21 @@ public class MG3Firesmall extends MG3Fire
         }// Add your action code here.
         gethit();
         removefire();
+        removefiredone();
     }   
     public void gethit()
     // groene balk loopt op bij hit!
     {
-        MG3Waterbeam mg3waterbeam;
-        mg3waterbeam = (MG3Waterbeam)getOneObjectAtOffset(0,0, MG3Waterbeam.class);
-        if(mg3waterbeam != null){
-            this.hitbar.getHit();
-            this.hitbar.getHit();
+        List<MG3Waterbeam> mg3waterbeam;
+        mg3waterbeam = (List<MG3Waterbeam>)getObjectsInRange(25, MG3Waterbeam.class);
         
-        }   
+        // iterate via "for loop"
+		for (int i = 0; i < mg3waterbeam.size(); i++) {
+			this.hitbar.getHit();
+            
+		}
+                  
+           
     }
     
     public void addHealthbar() {
@@ -61,16 +65,34 @@ public class MG3Firesmall extends MG3Fire
     {
                    
        if (!hitbar.hitful() == true){
-           World world;
-           world = getWorld();
+           MiniGame3World world;
+           world = (MiniGame3World)getWorld();
            world.removeObject(this);
            world.removeObject(hitbar);
            world.removeObject(healthbar);
+           world.Firesmall();
+           
+           
+           
            
        
         }
        
-    }  
+    }
+    public void removefiredone()
+    {
+        if (!healthbar.lifedone () == true) {
+           MiniGame3World world;
+           world = (MiniGame3World)getWorld();
+           world.removeObject(this);
+           world.removeObject(hitbar);
+           world.removeObject(healthbar);
+           world.lives.removeLife();
+           world.Firesmall();
+        
+        }
+    }
+    
 }
 
 

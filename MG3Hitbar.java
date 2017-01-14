@@ -37,7 +37,7 @@ public class MG3Hitbar extends Actor
         hit++;
     }  
     public boolean hitful() {
-        if (this.hit == 39) {
+        if (this.hit >= 39) {
             return false;
             }
             return true;
