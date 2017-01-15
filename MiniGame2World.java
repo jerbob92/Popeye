@@ -13,6 +13,7 @@ public class MiniGame2World extends World
     
     GameState globalGameState;
     MG2Ship ship;
+    Arrow arrow;
 
     /**
      * Constructor for objects of class MiniGame2World.
@@ -47,17 +48,13 @@ public class MiniGame2World extends World
         MG2Hook hook = new MG2Hook();
         addObject(hook,450,-250);
      
-        Arrow arrow = new Arrow();
+        this.arrow = new Arrow();
         addObject(arrow,390,395);
         
         Meter meter = new Meter();
         addObject(meter,390,350);
        
     }
-   
-   
-      private Arrow arrow = new Arrow();
-      
 
 // public getter method
     

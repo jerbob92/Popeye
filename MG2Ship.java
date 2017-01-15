@@ -76,14 +76,14 @@ public class MG2Ship extends Actor
            for(int i2=0; i2 < this.containers[i].length; i2++){
               if (this.containers[i][i2] != null && container == this.containers[i][i2]) {
                   this.containers[i][i2] = null;
+                  
+                  balance = balance-(2*i-3);
+                  ((MiniGame2World)getWorld()).getArrow().setBalance(balance); 
+                  
                   break;
                   
-              }
-           
-              ((MiniGame2World)getWorld()).getArrow().setBalance(balance); 
-              balance = balance-(2*i-3);
+              }          
            } 
-           
         }
     }
     
@@ -107,16 +107,13 @@ public class MG2Ship extends Actor
         for(int i2=0; i2 < this.containers[i].length; i2++){
               if (this.containers[i][i2] != null) {
                   containersInRow++;
-             
               }
-              ((MiniGame2World)getWorld()).getArrow().setBalance(balance); 
-              balance = balance+(i*2+3);
         }  
        
         this.containers[i][containersInRow] = container;
         container.setLocation(this.startX + (i*100), this.startY - (containersInRow*66));
-
-          
+        ((MiniGame2World)getWorld()).getArrow().setBalance(balance); 
+        balance = balance+(i*2+3);
     }
     
     public boolean isLastContainerInColumn(MG2Container container) {
