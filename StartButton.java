@@ -18,7 +18,7 @@ public class StartButton extends Button
        if (Greenfoot.mouseClicked(this))
         {
             MainMenuWorld thisWorld = (MainMenuWorld) getWorld();
-            MiniGame1World nextWorld = new MiniGame1World();
+            MiniGame2World nextWorld = new MiniGame2World();
             nextWorld.setGameState(thisWorld.getGameState());
             Greenfoot.setWorld(nextWorld);
         }
