@@ -13,7 +13,7 @@ public class MiniGame2World extends World
     
     GameState globalGameState;
     MG2Ship ship;
-    Arrow arrow;
+    MG2Arrow arrow;
 
     /**
      * Constructor for objects of class MiniGame2World.
@@ -48,17 +48,17 @@ public class MiniGame2World extends World
         MG2Hook hook = new MG2Hook();
         addObject(hook,450,-250);
      
-        this.arrow = new Arrow();
-        addObject(arrow,390,395);
+        this.arrow = new MG2Arrow();
+        addObject(arrow,390,295);
         
-        Meter meter = new Meter();
-        addObject(meter,390,350);
+        MG2Meter meter = new MG2Meter();
+        addObject(meter,390,250);
        
     }
 
 // public getter method
     
-    public Arrow getArrow()
+    public MG2Arrow getArrow()
     {
         return arrow;
     }
@@ -89,6 +89,19 @@ public class MiniGame2World extends World
         this.getGameState().setFinished(2, 0);
         if (n == 0) {
             MiniGame3World newWorld = new MiniGame3World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
+        } else {
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
+        }
+    }
+    
+    public void gameOver() {
+        int n = JOptionPane.showConfirmDialog(null, "Game over! Do you want to try again?", "Game Over!", JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
+            MiniGame2World newWorld = new MiniGame2World();
             newWorld.setGameState(this.getGameState());
             Greenfoot.setWorld(newWorld);
         } else {

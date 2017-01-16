@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=Meter
+comment0.target=MG2Meter
 comment0.text=\n\ Write\ a\ description\ of\ class\ Meter\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=Meter()
+comment1.target=MG2Meter()
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ Meter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n

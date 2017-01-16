@@ -6,16 +6,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Meter extends Actor
+public class MG2Meter extends Actor
 {
-   GreenfootImage Meter = new GreenfootImage("MG2Meter.png");
+   GreenfootImage meter = new GreenfootImage("MG2Meter.png");
     
     
-    public Meter()
+    public MG2Meter()
     {
-        GreenfootImage img = Meter;
+        GreenfootImage img = meter;
         img.scale(img.getWidth()*3/4, img.getHeight()*3/4);
-        setImage(Meter);
+        setImage(meter);
        
     }
     
