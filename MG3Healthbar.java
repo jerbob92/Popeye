@@ -12,7 +12,7 @@ public class MG3Healthbar extends Actor
     int healthBarWidth = 40;
     int healthBarHeight = 10;
     int pixelsPerHealthPoint = healthBarWidth / health;
-    
+
     /**
      * Act - do whatever the Healthbar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,11 +23,12 @@ public class MG3Healthbar extends Actor
         this.pixelsPerHealthPoint = healthBarWidth / health;
         update();
     }
-    
+
     public void act() 
     {
         update();// Add your action code here.
     }    
+
     public void update ()
     {
         setImage(new GreenfootImage(healthBarWidth + 2, healthBarHeight + 2));
@@ -37,16 +38,17 @@ public class MG3Healthbar extends Actor
         myImage.setColor(Color.RED);
         myImage.fillRect(1, 1, health*pixelsPerHealthPoint, healthBarHeight);
     }
-    
+
     public void loseHealth()
     {
         health--;
     }
+
     public boolean lifedone() {
         if (this.health < 1) {
             return false;
-            }
-            return true;
+        }
+        return true;
     }
-        
+
 }

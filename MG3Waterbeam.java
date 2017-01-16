@@ -9,14 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MG3Waterbeam extends Actor
 {
     private int life = 35;
-    
+
     /**
      * Act - do whatever the MG3Waterbeam wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-         move(5);
+        move(5);
         life--;
         if (life == 0)
         {

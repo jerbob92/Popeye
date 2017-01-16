@@ -28,9 +28,9 @@ public class MG2Arrow extends Actor
     {
         if (balance >= -80 && balance <= 80) {
             this.balance = balance;   
-            
+
             if (balance <= -50) {
-               this.blinking = true; 
+                this.blinking = true; 
             }
             else if (balance >= 50) {
                 this.blinking = true; 
@@ -38,15 +38,15 @@ public class MG2Arrow extends Actor
             else {
                 this.blinking = false; 
             }
-           
+
         }
         else if (balance < -80) {
             this.balance = -80; 
             ((MiniGame2World)getWorld()).gameOver();
         }
         else if (balance > 80) {
-             this.balance = 80; 
-             ((MiniGame2World)getWorld()).gameOver();
+            this.balance = 80; 
+            ((MiniGame2World)getWorld()).gameOver();
         }
     }
 
@@ -57,11 +57,11 @@ public class MG2Arrow extends Actor
     public void act()
     {
         setRotation(this.balance);
-        
+
         if (this.blinking) {
             long currentTime = System.currentTimeMillis();
             long timePassed = currentTime - this.blinkTimer;
-            
+
             if (timePassed > 500) {
                 if (this.blink_switch) {
                     this.blink_switch = false;
@@ -70,7 +70,7 @@ public class MG2Arrow extends Actor
                     this.blink_switch = true;
                     this.setTransparency(100);
                 }
-                
+
                 this.blinkTimer = System.currentTimeMillis();
             }
         } else {

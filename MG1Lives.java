@@ -20,12 +20,12 @@ public class MG1Lives extends Actor
         this.lives[1] = new MG1Life(); 
         this.lives[2] = new MG1Life();
     }
-    
+
     public void act() 
     {
         // Add your action code here.
     }   
-    
+
     public void setupLives()
     {
         this.world = (MiniGame1World)getWorld();
@@ -33,7 +33,7 @@ public class MG1Lives extends Actor
         this.world.addObject(this.lives[1],world.getWidth()-200,50);
         this.world.addObject(this.lives[2],world.getWidth()-250,50);
     }
-    
+
     public void removeLife()
     {
         for (int i=2; i>=0;i--)
@@ -43,14 +43,14 @@ public class MG1Lives extends Actor
                 this.lives[i].setStatus(false);
                 world.gameOver();
             }
-            
+
             if (this.lives[i].getStatus())
             {
                 this.lives[i].setStatus(false);
                 break;
             }
-           
+
         }
-        
+
     }
 }

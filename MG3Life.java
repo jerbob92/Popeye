@@ -13,7 +13,7 @@ public class MG3Life extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private boolean alive = true;
-    
+
     public void act() 
     {
         // Add your action code here.
@@ -28,11 +28,11 @@ public class MG3Life extends Actor
             this.setImage(imgDead);   
         }
     }    
-    
+
     public boolean getAlive() {
         return this.alive;
     }
-    
+
     public void setAlive(boolean newStatus) {
         this.alive = newStatus;
     }

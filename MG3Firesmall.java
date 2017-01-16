@@ -17,20 +17,18 @@ public class MG3Firesmall extends MG3Fire
     {
         List<MG3Waterbeam> mg3waterbeam;
         mg3waterbeam = (List<MG3Waterbeam>)getObjectsInRange(25, MG3Waterbeam.class);
-        
+
         // iterate via "for loop"
-		for (int i = 0; i < mg3waterbeam.size(); i++) {
-			this.hitbar.getHit();
-            
-		}
+        for (int i = 0; i < mg3waterbeam.size(); i++) {
+            this.hitbar.getHit();
+
+        }
     }
-    
+
     public void recreate(MiniGame3World world) {
         world.Firesmall();
     }
 }
-
-
 
 
 

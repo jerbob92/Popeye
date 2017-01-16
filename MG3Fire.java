@@ -13,14 +13,14 @@ public class MG3Fire extends Actor
     MG3Hitbar hitbar;
     long losttimehealth = 0;
     long healthloseinterval = 0;
-    
+
     public MG3Fire (long healthloseinterval)
     {
         this.fireSize = 3;
         this.losttimehealth = System.currentTimeMillis();
         this.healthloseinterval = healthloseinterval;
     }
-    
+
     /**
      * Act - do whatever the MG3Fire wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -32,53 +32,55 @@ public class MG3Fire extends Actor
             this.healthbar.loseHealth();
             this.losttimehealth = System.currentTimeMillis();
         }
-       
+
         gethit();
         removefire();
         removefiredone();
     }    
-    
+
     public void gethit()
     {   
-         throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
-    
+
     public void addHealthbar() {
         this.healthbar = new MG3Healthbar(40 - (this.fireSize * 10));
         getWorld().addObject(this.healthbar,getX(), getY() + 35);
     } 
+
     public void addHitbar() {
         this.hitbar = new MG3Hitbar();
         getWorld().addObject(this.hitbar,getX(), getY() + 45);
     } 
-    
+
     public void removefire()
     {
-                   
-       if (!hitbar.hitful()){
-           MiniGame3World world;
-           world = (MiniGame3World)getWorld();
-           world.removeObject(this);
-           world.removeObject(hitbar);
-           world.removeObject(healthbar);
-           recreate(world);
+
+        if (!hitbar.hitful()){
+            MiniGame3World world;
+            world = (MiniGame3World)getWorld();
+            world.removeObject(this);
+            world.removeObject(hitbar);
+            world.removeObject(healthbar);
+            recreate(world);
         }
-       
+
     } 
+
     public void removefiredone()
     {
         if (!healthbar.lifedone ()) {
-           MiniGame3World world;
-           world = (MiniGame3World)getWorld();
-           world.removeObject(this);
-           world.removeObject(hitbar);
-           world.removeObject(healthbar);
-           world.getLives().removeLife();
-           recreate(world);
+            MiniGame3World world;
+            world = (MiniGame3World)getWorld();
+            world.removeObject(this);
+            world.removeObject(hitbar);
+            world.removeObject(healthbar);
+            world.getLives().removeLife();
+            recreate(world);
         }
     }
-    
+
     public void recreate(MiniGame3World world) {
-         throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
 }

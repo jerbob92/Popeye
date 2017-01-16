@@ -11,24 +11,23 @@ public class MG3Firebig1 extends MG3Fire
     public MG3Firebig1() {
         super(2000);   
     }
-    
+
     public void gethit()
     // groene balk loopt op bij hit!
     {
         List<MG3Waterbeam2> mg3waterbeam2;
         mg3waterbeam2 = (List<MG3Waterbeam2>)getObjectsInRange(15, MG3Waterbeam2.class);
-        
+
         // iterate via "for loop"
-		for (int i = 0; i < mg3waterbeam2.size(); i++) {
-			this.hitbar.getHit();
-            
-		}     
+        for (int i = 0; i < mg3waterbeam2.size(); i++) {
+            this.hitbar.getHit();
+
+        }     
     }
-    
+
     public void recreate(MiniGame3World world) {
         world.Firebig1();
     }
 }
-
 
 

@@ -12,16 +12,18 @@ public class MG3Hitbar extends Actor
     int hitBarWidth = 40;
     int hitBarHeight = 10;
     int totalhit = 1;
-    
+
     public MG3Hitbar()
     {
         this.hit = totalhit;
         update();
     }
+
     public void act() 
     {
         update();// Add your action code here.
     } 
+
     public void update ()
     {
         setImage(new GreenfootImage(hitBarWidth + 2, hitBarHeight + 2));
@@ -31,19 +33,19 @@ public class MG3Hitbar extends Actor
         myImage.setColor(Color.GREEN);
         myImage.fillRect(1, 1, hit, hitBarHeight);
     }
-    
+
     public void getHit()
     {
         hit++;
     }  
+
     public boolean hitful() {
         if (this.hit >= 39) {
             return false;
-            }
-            return true;
+        }
+        return true;
     }
-        
-}
 
+}
 
 
