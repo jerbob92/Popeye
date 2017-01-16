@@ -9,11 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MG2Arrow extends Actor
 {
     GreenfootImage arrow = new GreenfootImage("MG2Arrow.png");
-
-    // Balance should be between -80 and 80;
     int balance = 0;
     boolean blinking = false;
-    boolean blink_switch = false;
+    boolean blinkSwitch = false;
     long blinkTimer;
 
     public MG2Arrow()
@@ -26,13 +24,12 @@ public class MG2Arrow extends Actor
 
     public void setBalance(int balance)
     {
+            // Balance should be between -80 and 80 or game over.
         if (balance >= -80 && balance <= 80) {
             this.balance = balance;   
 
-            if (balance <= -50) {
-                this.blinking = true; 
-            }
-            else if (balance >= 50) {
+            // Check if in danger zone.
+            if (balance >= 50 || balance <= -50) {
                 this.blinking = true; 
             }
             else {
@@ -63,11 +60,11 @@ public class MG2Arrow extends Actor
             long timePassed = currentTime - this.blinkTimer;
 
             if (timePassed > 500) {
-                if (this.blink_switch) {
-                    this.blink_switch = false;
+                if (this.blinkSwitch) {
+                    this.blinkSwitch = false;
                     this.setTransparency(255);
                 } else {
-                    this.blink_switch = true;
+                    this.blinkSwitch = true;
                     this.setTransparency(100);
                 }
 

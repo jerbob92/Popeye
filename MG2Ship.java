@@ -113,24 +113,34 @@ public class MG2Ship extends Actor
     public int calculateBalance() {
         int balance = 0;
         for(int i=0; i < this.containers.length; i++){
-            for(int i2=0; i2 < this.containers[i].length; i2++){
-                if (this.containers[i][i2] != null) {
-                    switch (i) {
-                        case 0: 
-                        balance -= 20;
-                        break;
-                        case 1: 
-                        balance -= 12;
-                        break;
-                        case 2: 
-                        balance += 12;
-                        break;
-                        case 3: 
-                        balance += 20;
-                        break;
-                    }
-                }          
-            } 
+            balance += getRowBalance(i);
+        }
+
+        return balance;
+    }
+
+    public int getRowBalance(int i) {
+        int balance = 0;
+        for(int i2=0; i2 < this.containers[i].length; i2++){
+            if (this.containers[i][i2] != null) {
+                switch (i) {
+                    case 0: 
+                    balance -= 20;
+                    break;
+                    case 1: 
+                    balance -= 12;
+                    break;
+                    case 2: 
+                    balance += 12;
+                    break;
+                    case 3: 
+                    balance += 20;
+                    break;
+                    default:
+                    // This should never happen. We only have 4 rows.
+                    break;
+                }
+            }          
         }
 
         return balance;

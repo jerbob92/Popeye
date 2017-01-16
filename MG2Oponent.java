@@ -27,7 +27,7 @@ public class MG2Oponent extends Actor
             this.containers--;
         }
 
-        setImage(new GreenfootImage("Aantal containers tegenstander: " + String.valueOf(this.containers), 20, Color.BLACK, new Color(0, 0, 0, 0)));
+        setImage(new GreenfootImage("Aantal containers tegenstander: " + this.containers, 20, Color.BLACK, new Color(0, 0, 0, 0)));
         if (this.containers <= 0) {
             ((MiniGame2World)getWorld()).gameOver();
         }
