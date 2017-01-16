@@ -10,7 +10,7 @@ import javax.swing.*;
  */
 public class MiniGame2World extends World
 {
-    
+
     GameState globalGameState;
     MG2Ship ship;
     MG2Arrow arrow;
@@ -25,49 +25,52 @@ public class MiniGame2World extends World
         super(1280, 720, 1, false); 
         prepare();
     }
-    
+
     public void setGameState(GameState gamestate) {
         this.globalGameState = gamestate;
     }
-    
+
     public GameState getGameState() {
         return this.globalGameState;
     }
-    
+
     private void prepare() {   
-        
+
+        MG2Oponent oppenent= new MG2Oponent();
+        addObject(oppenent, 1090,30);
+
         MG2Quay quay = new MG2Quay();
         addObject(quay, 640,680);
-        
+
         MG2Train train = new MG2Train();
         addObject(train,1100,620);
-        
+
         this.ship = new MG2Ship(this);
         addObject(ship,400,615);
-        
+
         MG2Hook hook = new MG2Hook();
         addObject(hook,450,-250);
-     
+
         this.arrow = new MG2Arrow();
         addObject(arrow,390,295);
-        
+
         MG2Meter meter = new MG2Meter();
         addObject(meter,390,250);
-       
+
     }
 
-// public getter method
-    
+    // public getter method
+
     public MG2Arrow getArrow()
     {
         return arrow;
     }
-    
+
     public void act()
     {
         buttonPressed();
     }
-    
+
     public void buttonPressed()
     {
         if(Greenfoot.isKeyDown("escape")) {
@@ -79,11 +82,11 @@ public class MiniGame2World extends World
             }
         }     
     }
-    
+
     public MG2Ship getShip() {
         return this.ship;
     }
-    
+
     public void win() {
         int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to minigame 3?", "Winner!", JOptionPane.YES_NO_OPTION);
         this.getGameState().setFinished(2, 0);
@@ -97,7 +100,7 @@ public class MiniGame2World extends World
             Greenfoot.setWorld(newWorld);
         }
     }
-    
+
     public void gameOver() {
         int n = JOptionPane.showConfirmDialog(null, "Game over! Do you want to try again?", "Game Over!", JOptionPane.YES_NO_OPTION);
         if (n == 0) {
