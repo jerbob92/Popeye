@@ -55,13 +55,13 @@ public class MainMenuWorld extends World
     
     public void act() {
         if (!this.globalGameState.getFinished(1)) {
-            this.startButton2.setLocation(400, -450);
+            //this.startButton2.setLocation(400, -450);
         } else {
             this.startButton2.setLocation(400, 450);
         }
         
         if (!this.globalGameState.getFinished(2)) {
-            this.startButton3.setLocation(400, -600);
+            //this.startButton3.setLocation(400, -600);
         } else {
             this.startButton3.setLocation(400, 600);
         }

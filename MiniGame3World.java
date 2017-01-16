@@ -149,10 +149,15 @@ public class MiniGame3World extends World
     
    public void Win() {
         int n = JOptionPane.showConfirmDialog(null, "You won! Do you want to go to Minigame 4?", "Winner!", JOptionPane.YES_NO_OPTION);
+        this.getGameState().setFinished(3, 0);
         if (n == 0) {
-            Greenfoot.setWorld(new MiniGame3World());
+            MiniGame3World newWorld = new MiniGame3World();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         } else {
-            Greenfoot.setWorld(new MainMenuWorld());
+            MainMenuWorld newWorld = new MainMenuWorld();
+            newWorld.setGameState(this.getGameState());
+            Greenfoot.setWorld(newWorld);
         }
     }
    public void gameOver() {
