@@ -42,4 +42,11 @@ public class MG3Healthbar extends Actor
     {
         health--;
     }
+    public boolean lifedone() {
+        if (this.health < 1) {
+            return false;
+            }
+            return true;
+    }
+        
 }

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MG3Crane extends Actor
+public class MG3Crane extends MG3Fireobjects
 {
     /**
      * Act - do whatever the MG3Crane wants to do. This method is called whenever
