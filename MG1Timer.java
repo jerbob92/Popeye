@@ -11,11 +11,11 @@ public class MG1Timer extends Actor
 {
     long startTime;
     long gameTime = 120;
-    
+
     public MG1Timer() {
-         this.startTime = System.currentTimeMillis();
+        this.startTime = System.currentTimeMillis();
     }
-    
+
     /**
      * Act - do whatever the Timer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,10 +25,10 @@ public class MG1Timer extends Actor
         long currentTime = System.currentTimeMillis();
         long timePassed = currentTime - this.startTime;
         long timeLeft = this.gameTime - (timePassed / 1000);
-        
+
         // Add your action code here.
         setImage(new GreenfootImage(String.valueOf(timeLeft), 20, Color.BLACK, new Color(0, 0, 0, 0)));
-        
+
         if (timeLeft <= 0) {
             MiniGame1World world;
             world = (MiniGame1World) getWorld();

@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MG2Quay extends Actor
 {
-    
-    
+
     /**
      * Act - do whatever the Quay wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

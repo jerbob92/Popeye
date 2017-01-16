@@ -1,23 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExitButton here.
+ * Write a description of class MG1Timertxt here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ExitButton extends Button
+public class MG1Timertxt extends MG1Timer
 {
-
     /**
-     * Act - do whatever the ExitButton wants to do. This method is called whenever
+     * Act - do whatever the MG1Timertxt wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (Greenfoot.mouseClicked(this))
-        {
-            System.exit(0);
-        }
+        // Add your action code here.
     }    
 }

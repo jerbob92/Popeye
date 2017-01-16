@@ -18,34 +18,34 @@ public class MG1EnemyList extends Actor
     boolean privateBoatAlt;
     MG1Crane[] cranes;
     int currentCrane;
-    
+
     public MG1EnemyList(){
         this.currentCrane = 0;
         this.i = 0;
         this.alt = true;
         getImage().setTransparency(0);
     }
-    
+
     public void setCranes(MG1Crane[] cranes) {
         this.cranes = cranes;
     }
-    
+
     public MG1Crane currentCrane() {
         return this.cranes[this.currentCrane];
     }
-    
+
     public int currentCraneI() {
         return this.currentCrane;
     }
-    
+
     public void incrementCrane() {
         this.currentCrane++;
-        
+
         if (this.currentCrane >= this.cranes.length) {
-             this.currentCrane = 0;
+            this.currentCrane = 0;
         }
     }
-    
+
     public void act() 
     {
         // Add your action code here.
@@ -56,7 +56,7 @@ public class MG1EnemyList extends Actor
             world.addObject(enemy, 5, Greenfoot.getRandomNumber(100)+100);
             this.i++;
         }
-        
+
         if(Greenfoot.getRandomNumber(5000) < 10){
             enemy = new MG1Enemy(this);
             if(alt) {
@@ -68,7 +68,7 @@ public class MG1EnemyList extends Actor
             }
             this.i++;
         }
-        
+
         if(Greenfoot.getRandomNumber(2000) < 10){
             MG1PrivateBoat privateBoat = new MG1PrivateBoat();
             if(privateBoatAlt) {

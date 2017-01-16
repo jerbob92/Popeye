@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MG2Hook extends Actor
 {
-    
+
     MG2Container draggingContainer;
-    
+
     /**
      * Act - do whatever the MG2Hook wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,24 +23,24 @@ public class MG2Hook extends Actor
         checkContainerTouchingDummy();
         checkDropContainer();
     }    
-    
+
     public void move()
     {   
         moveLeft();
         moveRight();
         moveDown();  
         moveUp();
-           
+
         // Make sure object is always properly rotated.
         setRotation(0);
     }
-    
+
     public void moveLeft() {
         if(Greenfoot.isKeyDown("left") && getX() > 20) {
             move(-4);
-       
+
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
-              move(4);  
+                move(4);  
             } else {
                 MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
                 if (container != null && this.draggingContainer == null) {
@@ -49,12 +49,12 @@ public class MG2Hook extends Actor
             }
         }
     }
-    
+
     public void moveRight() {
         if(Greenfoot.isKeyDown("right") && getX() < 1260) {
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
-              move(-4);  
+                move(-4);  
             } else {
                 MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
                 if (container != null && this.draggingContainer == null) {
@@ -63,24 +63,24 @@ public class MG2Hook extends Actor
             }
         }   
     }
-    
+
     public void moveUp() {
         if(Greenfoot.isKeyDown("up") && getY() > -250) {
             setRotation(270);
             move(4);
         }
     }
-    
+
     public void moveDown() {
         boolean isInNormalRange = this.draggingContainer == null && getY() < 250;
         boolean isInDraggingRange = this.draggingContainer != null && getY() < 230;
         boolean isInRange = isInNormalRange || isInDraggingRange;
-        
+
         if(Greenfoot.isKeyDown("down") && isInRange) {
             setRotation(90);
             move(4);
             if (this.draggingContainer != null && this.draggingContainer.touchingAnotherContainer()) {
-              move(-4);  
+                move(-4);  
             } else {
                 MG2Container container = (MG2Container)getOneIntersectingObject(MG2Container.class);
                 if (container != null && this.draggingContainer == null) {
@@ -89,7 +89,7 @@ public class MG2Hook extends Actor
             }
         }  
     }
-    
+
     public void checkContainer() {
         MG2Container container;
         container = (MG2Container)getOneIntersectingObject(MG2Container.class);
@@ -102,13 +102,13 @@ public class MG2Hook extends Actor
             }
         }
     }
-    
+
     public void positionCurrentContainer() {
         if (this.draggingContainer != null) {
             this.draggingContainer.setLocation(this.getX(), this.getY()+390);      
         }
     }
-    
+
     public void checkContainerTouchingDummy() {
         if (this.draggingContainer != null) {
             MG2Container dummyContainer = this.draggingContainer.touchingDummyContainer();
@@ -121,7 +121,7 @@ public class MG2Hook extends Actor
         }
 
     }
-    
+
     public void checkDropContainer() {
         if(this.draggingContainer != null && Greenfoot.isKeyDown("space")) {
             MiniGame2World world = (MiniGame2World) getWorld();            
@@ -134,7 +134,7 @@ public class MG2Hook extends Actor
             }
         }
     }
-    
+
     public int getCurrentDropRow() {
         int currentRow = 0;
         if (getX() >= 226 && getX() <= 343) {
@@ -143,11 +143,11 @@ public class MG2Hook extends Actor
         else if (getX() > 343 && getX() <= 460) {
             currentRow = 1;
         }
-        
+
         else if (getX() > 460 && getX() <= 577) {
             currentRow = 2;
         }
-        
+
         else if (getX() > 577 && getX() <= 694) {
             currentRow = 3;
         }

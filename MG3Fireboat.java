@@ -10,29 +10,29 @@ public class MG3Fireboat extends Actor
 {
     private int startX = 300;
     private int startY = 300;
-    
+
     /**
      * Act - do whatever the MG3Fireboat wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        
+
         if(Greenfoot.isKeyDown("up") ) {
             move(5);
             checkObstacle();
-           
+
         }
         if(Greenfoot.isKeyDown("down") ) {
             move(-4);
             checkObstacle2();
         }
-        
+
         if(Greenfoot.isKeyDown("left")) {
             turn(-3);
             checkObstacle();
             checkObstacle2();
-            
+
         }    
         if(Greenfoot.isKeyDown("right")) {
             turn(3);
@@ -49,15 +49,15 @@ public class MG3Fireboat extends Actor
 
         }
     } 
-    
+
     public int getStartX() {
         return this.startX;
     }
-    
+
     public int getStartY() {
         return this.startY;
     }
-    
+
     /**
      * fire the cannon space.
      */
@@ -68,7 +68,8 @@ public class MG3Fireboat extends Actor
         mg3waterbeam2.setRotation(getRotation());
         mg3waterbeam2.move(-20);
     }    
-        /**
+
+    /**
      * fire the cannon space.
      */
     private void fire()
@@ -78,7 +79,8 @@ public class MG3Fireboat extends Actor
         mg3waterbeam.setRotation(getRotation());
         mg3waterbeam.move(50);
     }    
-       public void checkObstacle()
+
+    public void checkObstacle()
     {
         Actor mg3Quay = getOneIntersectingObject(MG3Quay.class);
         if(mg3Quay != null)
@@ -96,6 +98,7 @@ public class MG3Fireboat extends Actor
             move(-5);
         }
     }
+
     public void checkObstacle2()
     {
         Actor mg3Quay = getOneIntersectingObject(MG3Quay.class);
@@ -115,6 +118,5 @@ public class MG3Fireboat extends Actor
         }
     }
 }
-
 
 
